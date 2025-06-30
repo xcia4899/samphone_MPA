@@ -14,7 +14,48 @@ $color-black: #0f0f0f;
   box-sizing: border-box;
 }
 
-//---------------------------------------------------
+///--startani------------------------------
+body.no-scroll {
+  overflow: hidden;
+}
+
+.intro {
+  position: fixed;
+  inset: 0;
+  background-color: black;
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: fadeOut 1.5s ease 2.5s forwards;
+}
+
+.intro-logo {
+  color: white;
+  font-size: 3rem;
+  animation: fadeIn 2s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+//-----index----------------------------------------------
 .my-navbar {
   background-color: rgba($color-red, 0.3) !important;
   backdrop-filter: blur(6px);
@@ -59,6 +100,7 @@ $color-black: #0f0f0f;
       .navbar-nav {
         .nav-item {
           margin: 4px 0;
+
           .my-dropdown-menu {
             background-color: rgba(255, 255, 255, 0.2);
             border-radius: 4px;
@@ -73,7 +115,7 @@ $color-black: #0f0f0f;
               border-radius: 4px;
 
               &:hover {
-                background-color: rgb(255, 255, 255,0.3);
+                background-color: rgb(255, 255, 255, 0.3);
               }
             }
           }
@@ -90,9 +132,9 @@ $color-black: #0f0f0f;
 
 //------------------------------------------------
 .row-01 {
-  min-height: 600px;
+  min-height: 1200px;
   // background-color: #8f8f8f;
-  background-image: url('../images/bg/IMG_0634.jpg');
+  background-image: url('../images/bg/J_03795.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: top;

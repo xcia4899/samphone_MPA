@@ -8,6 +8,43 @@
   box-sizing: border-box;
 }
 
+body.no-scroll {
+  overflow: hidden;
+}
+
+.intro {
+  position: fixed;
+  inset: 0;
+  background-color: black;
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: fadeOut 1.5s ease 2.5s forwards;
+}
+
+.intro-logo {
+  color: white;
+  font-size: 3rem;
+  animation: fadeIn 2s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
 .my-navbar {
   background-color: rgba(110, 6, 6, 0.3) !important;
   -webkit-backdrop-filter: blur(6px);
@@ -63,8 +100,8 @@
 }
 
 .row-01 {
-  min-height: 600px;
-  background-image: url("../images/bg/IMG_0634.jpg");
+  min-height: 1200px;
+  background-image: url("../images/bg/J_03795.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: top;
