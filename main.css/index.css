@@ -1,3 +1,7 @@
+body {
+  background-color: #270900;
+}
+
 .content-area {
   max-width: 1600px;
   margin: 0 auto;
@@ -9,49 +13,77 @@
 }
 
 body.no-scroll {
-  overflow: hidden;
+  background-image: url("../images/bg/J_03795.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top;
 }
 
 .intro {
   position: fixed;
   inset: 0;
-  background-color: black;
+  background-color: #270900;
   z-index: 9999;
   display: flex;
   justify-content: center;
   align-items: center;
-  animation: fadeOut 1.5s ease 2.5s forwards;
+  animation: fadeOut 3s ease 0.5s forwards;
 }
 
 .intro-logo {
-  color: white;
-  font-size: 3rem;
-  animation: fadeIn 2s ease;
+  position: absolute;
+  animation: fadeIn 3.5s ease forwards;
+  max-width: 200px;
+  width: 100%;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) scale(1);
+}
+.intro-logo img {
+  max-width: 200px;
+  width: 100%;
 }
 
 @keyframes fadeIn {
-  from {
+  0% {
     opacity: 0;
-    transform: scale(0.8);
+    transform: translate(-50%, -50%) scale(1);
   }
-  to {
+  60% {
     opacity: 1;
-    transform: scale(1);
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) scale(3);
+  }
+  100% {
+    opacity: 0.2;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) scale(60);
   }
 }
 @keyframes fadeOut {
-  to {
-    opacity: 0;
+  0% {
+    opacity: 1;
     visibility: hidden;
+  }
+  60% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
   }
 }
 .my-navbar {
+  position: fixed;
   background-color: rgba(110, 6, 6, 0.3) !important;
   -webkit-backdrop-filter: blur(6px);
           backdrop-filter: blur(6px);
   margin: 32px 32px 0;
   border-radius: 30px;
   padding: 8px 30px;
+  transition: all 0.4s ease;
+  z-index: 11111;
 }
 .my-navbar .my-catainer {
   padding: 4px;
@@ -60,7 +92,7 @@ body.no-scroll {
   border: 2px solid rgba(240, 240, 240, 0.4);
 }
 .my-navbar .my-catainer .my-offcanvas {
-  margin: -32px -32px 0;
+  margin: 0;
   height: 100vh;
   background-color: #270900 !important;
   border: none;
@@ -96,7 +128,7 @@ body.no-scroll {
   background-color: rgba(255, 255, 255, 0.3);
 }
 .my-navbar .my-catainer .offcanvas-backdrop {
-  margin: -34px -34px 0;
+  margin: 0;
 }
 
 .row-01 {

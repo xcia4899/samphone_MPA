@@ -4,6 +4,11 @@ $color-lightkred: #ee1d23;
 $color-white: #f0f0f0;
 $color-black: #0f0f0f;
 
+body {
+  background-color: $color-darkred;
+  // overflow-x: hidden; 
+}
+
 .content-area {
   max-width: 1600px;
   margin: 0 auto;
@@ -16,54 +21,90 @@ $color-black: #0f0f0f;
 
 ///--startani------------------------------
 body.no-scroll {
-  overflow: hidden;
+  // overflow: hidden;
+  background-image: url('../images/bg/J_03795.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top;
 }
 
 .intro {
   position: fixed;
   inset: 0;
-  background-color: black;
+  background-color: $color-darkred;
   z-index: 9999;
   display: flex;
   justify-content: center;
   align-items: center;
-  animation: fadeOut 1.5s ease 2.5s forwards;
+  animation: fadeOut 3s ease 0.5s forwards;
+
 }
 
 .intro-logo {
-  color: white;
-  font-size: 3rem;
-  animation: fadeIn 2s ease;
+  position: absolute;
+  animation: fadeIn 3.5s ease forwards;
+  max-width: 200px;
+  width: 100%;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%)scale(1);
+
+  img {
+    max-width: 200px;
+    width: 100%;
+  }
 }
 
 @keyframes fadeIn {
-  from {
+  0% {
     opacity: 0;
-    transform: scale(0.8);
+    transform: translate(-50%, -50%)scale(1);
   }
 
-  to {
+  60% {
     opacity: 1;
-    transform: scale(1);
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%)scale(3);
   }
+
+  100% {
+    opacity: 0.2;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%)scale(60); 
+  }
+
 }
 
 @keyframes fadeOut {
-  to {
-    opacity: 0;
+
+  0% {
+    opacity: 1;
     visibility: hidden;
+  }
+
+  60% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
   }
 }
 
-//-----index----------------------------------------------
+//---------------------------------------------------
 .my-navbar {
+  position: fixed;
   background-color: rgba($color-red, 0.3) !important;
   backdrop-filter: blur(6px);
-
+  
   margin: 32px 32px 0;
   border-radius: 30px;
   padding: 8px 30px;
+  transition: all 0.4s ease;
 
+  z-index: 11111;
   .my-catainer {
     padding: 4px;
 
@@ -72,12 +113,10 @@ body.no-scroll {
     }
 
     .my-offcanvas {
-      margin: -32px -32px 0;
+      margin: 0;
       height: 100vh;
 
       background-color: $color-darkred !important;
-      // backdrop-filter: blur(20px);
-
       border: none;
 
       .offcanvas-header {
@@ -124,16 +163,18 @@ body.no-scroll {
     }
 
     .offcanvas-backdrop {
-      margin: -34px -34px 0;
+      margin: 0;
     }
   }
 }
 
 
+
+
 //------------------------------------------------
 .row-01 {
   min-height: 1200px;
-  // background-color: #8f8f8f;
+
   background-image: url('../images/bg/J_03795.jpg');
   background-size: cover;
   background-repeat: no-repeat;
