@@ -177,7 +177,6 @@ body.no-scroll {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.5rem;
 }
 
 .fixed-position {
@@ -189,5 +188,21 @@ body.no-scroll {
 }
 
 .row-02 {
+  height: 100vh;
+  background-image: url("../images/bg/IMG_1907.jpg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: top;
+}
+
+.row-03 {
+  height: 100vh;
+  background-image: url("../images/bg/IMG_4425.jpg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: top;
+}
+
+.row-04 {
   height: 3000px;
 }/*# sourceMappingURL=index.css.map */

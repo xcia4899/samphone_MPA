@@ -6,7 +6,7 @@ $color-black: #0f0f0f;
 
 body {
   background-color: $color-darkred;
-  overflow-x: hidden; 
+  overflow-x: hidden;
 }
 
 .content-area {
@@ -203,6 +203,7 @@ body.no-scroll {
   height: 100vh;
 
   background-image: url(../images/bg/IMG_0634.jpg);
+
   .block-control {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -215,15 +216,18 @@ body.no-scroll {
     // padding: 10px;
     box-sizing: border-box;
   }
+
   .block {
     background-color: rgba(105, 105, 105, 0.6);
-    border:  1px solid wheat;
+    border: 1px solid wheat;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.5rem;
+    
   }
+  
 }
+
 .fixed-position {
   position: fixed;
   top: 0;
@@ -231,9 +235,22 @@ body.no-scroll {
   width: 100%;
   z-index: 9999;
 }
-.row-02 {
-  height: 3000px;
 
-  
+.row-02 {
+  height: 100vh;
+  background-image: url('../images/bg/IMG_1907.jpg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: top;
+}
+.row-03 {
+  height: 100vh;
+  background-image: url('../images/bg/IMG_4425.jpg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: top;
+}
+.row-04 {
+  height: 3000px;
 
 }
