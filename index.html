@@ -12,7 +12,7 @@
     />
     <link rel="stylesheet" href="./main.css/index.css" />
   </head>
-  <body >
+  <body>
     <div id="app">
       <!-- 開場動畫區塊 -->
       <div v-if="!introPlayed" class="intro" @animationend="onIntroEnd">
@@ -98,7 +98,12 @@
 
         <section>
           <div class="background-fixed"></div>
+        </section>
+        <div class="beforeRow"></div>
+
+        <section>
           <div class="row-01">
+            <div class="bg-layer"></div>
             <div class="block-control">
               <div class="block block1"></div>
               <div class="block block2"></div>
@@ -116,10 +121,18 @@
           </div>
         </section>
         <section>
-          <div class="row-02"></div>
+          <div class="row-02">
+            <div class="img-control r2-img">
+              <img src="./images/bg/IMG_1907.jpg" alt="" />
+            </div>
+          </div>
         </section>
         <section>
-          <div class="row-03"></div>
+          <div class="row-03">
+            <div class="img-control r3-img">
+              <img src="./images/bg/IMG_4425.jpg" alt="" />
+            </div>
+          </div>
         </section>
         <section>
           <div class="row-04"></div>

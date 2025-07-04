@@ -79,16 +79,16 @@ body.no-scroll {
 }
 .my-navbar {
   position: absolute;
-  background-color: rgba(110, 6, 6, 0.3) !important;
-  -webkit-backdrop-filter: blur(6px);
-          backdrop-filter: blur(6px);
+  background-color: rgba(110, 6, 6, 0.8) !important;
+  -webkit-backdrop-filter: blur(12px);
+          backdrop-filter: blur(12px);
   margin: 32px 32px 0;
   border-radius: 30px;
   padding: 8px 30px;
   z-index: 11111;
   transition: all 0.4s ease;
   transform: translateY(-200px);
-  animation: mynavbarani 0.6s ease forwards;
+  animation: mynavbarani 1s ease-out forwards;
 }
 @keyframes mynavbarani {
   0% {
@@ -145,7 +145,7 @@ body.no-scroll {
 }
 
 .background-fixed {
-  top: 0;
+  top: 0px;
   left: 0;
   width: 100vw;
   height: 100vh;
@@ -157,9 +157,24 @@ body.no-scroll {
   pointer-events: none;
 }
 
+.beforeRow {
+  height: 300px;
+  transform: translate(0 -100px);
+  background-color: #270900;
+  z-index: 1;
+}
+
 .row-01 {
   height: 100vh;
+}
+.row-01 .bg-layer {
+  position: absolute;
+  inset: 0;
   background-image: url(../images/bg/IMG_0634.jpg);
+  background-size: cover;
+  background-position: center;
+  opacity: 0.3;
+  z-index: -1;
 }
 .row-01 .block-control {
   display: grid;
@@ -172,11 +187,26 @@ body.no-scroll {
   box-sizing: border-box;
 }
 .row-01 .block {
-  background-color: rgba(105, 105, 105, 0.6);
-  border: 1px solid wheat;
+  background-color: #270900;
   display: flex;
   align-items: center;
   justify-content: center;
+  transform-origin: 0% 100%;
+  transform: scaleY(1);
+}
+.row-01 .block1,
+.row-01 .block2,
+.row-01 .block3,
+.row-01 .block4,
+.row-01 .block5,
+.row-01 .block6,
+.row-01 .block7,
+.row-01 .block8,
+.row-01 .block9,
+.row-01 .block10,
+.row-01 .block11,
+.row-01 .block12 {
+  transform-origin: left bottom;
 }
 
 .fixed-position {
@@ -187,20 +217,38 @@ body.no-scroll {
   z-index: 9999;
 }
 
+.img-control {
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.img-control img {
+  height: 100%;
+  width: 100%;
+  max-width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: left center;
+     object-position: left center;
+  transition: transform 0.3s ease;
+}
+
 .row-02 {
   height: 100vh;
-  background-image: url("../images/bg/IMG_1907.jpg");
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: top;
+  display: flex;
+  justify-content: flex-end;
+}
+.row-02 * {
+  border: 1px solid;
 }
 
 .row-03 {
   height: 100vh;
-  background-image: url("../images/bg/IMG_4425.jpg");
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: top;
+  display: flex;
+  justify-content: flex-end;
 }
 
 .row-04 {
