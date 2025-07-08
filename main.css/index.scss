@@ -206,6 +206,52 @@ body.no-scroll {
   z-index: 1;
 }
 
+
+.img-control {
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  img {
+    height: 100%;
+    width: 100%;
+    max-width: 100%;
+    object-fit: cover;
+    object-position: left center;
+    transition: transform 0.3s ease;
+  }
+}
+
+.card {
+  height: 500px;
+  width: 300px;
+  overflow: hidden;
+
+
+  .pic {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    filter: brightness(0.4);
+  }
+
+  .title {
+    font-size: 36px;
+    color: $color-white;
+    font-weight: 900;
+    letter-spacing: 3px;
+    position: absolute;
+    left: 50%;
+    top: 20%;
+    transform: translate(-50%);
+  }
+}
+
 .row-01 {
   height: 100vh;
 
@@ -258,35 +304,6 @@ body.no-scroll {
   }
 }
 
-.fixed-position {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 9999;
-}
-
-.img-control {
-  
-  width: 100%;
-  height: 100vh;
-  overflow: hidden;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  img {
-    height: 100%;
-    width: 100%;
-    max-width: 100%;
-    object-fit: cover;
-    object-position: left center;
-    transition: transform 0.3s ease;
-  }
-}
-
-
-
 
 
 .row-02 {
@@ -298,17 +315,78 @@ body.no-scroll {
   display: flex;
   justify-content: flex-end;
 
+  .text-area {
+    // position: absolute;
+    width: 0%;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  
+    .title {
+      font-size: 24px;
+      opacity: 0;
+    }
+    .text-content {
+      font-size: 18px;
+      opacity: 0;
+    }
+  }
 
 
 }
 
 .row-03 {
+  * {
+    border: 1px solid;
+  }
+
   height: 100vh;
   display: flex;
   justify-content: flex-end;
 }
 
 .row-04 {
-  height: 3000px;
 
+
+  border: 1px solid white;
+  height: 100vh;
+  padding: 16px;
+
+
+  .hiddenarea {
+    // border: 1px solid white;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  .horizontal-area {
+
+    width: 260vw;
+    height: 100%;
+    transform: translate(100vw, 0);
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+
+    // background-color: #929292;
+    .card {
+      height: 500px;
+      width: 300px;
+
+      .pic {
+        background-image: url(../images/row4/IMG_7743.jpg);
+        filter: brightness(0.4);
+      }
+
+      .title {
+
+        transform: translate(-50%);
+      }
+    }
+  }
+}
+
+.row-05 {
+  height: 600px;
 }

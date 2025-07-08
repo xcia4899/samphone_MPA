@@ -15,12 +15,12 @@ export const indexdrop = {
           gsap.registerPlugin(ScrollTrigger);
 
           this.rowSetAni();
-          this.blockSetAniTimeline();  // 改用 timeline 版
+          this.Row01BlockTimeline();  // 改用 timeline 版
         });
       }
     },
 
-    // 你的 row 固定動畫保持不動
+    // row 固定動畫
     rowSetAni() {
       const rows = [
         {
@@ -56,7 +56,7 @@ export const indexdrop = {
           steps: [
             {
               animation: {},
-              scroll: { start: "top top", end: "+=3000", pin: true },
+              scroll: { start: "top top", end: "+=4000", pin: true },
             },
           ],
         },
@@ -64,8 +64,35 @@ export const indexdrop = {
           selector: ".row-02 .r2-img ",
           steps: [
             {
-              animation: { width: "60%",padding:16 },
+              animation: { width: "60%", padding: 16 },
               scroll: { start: "top+=200", end: "+=1000", pin: false },
+            },
+          ],
+        },
+        {
+          selector: ".row-02 .text-area ",
+          steps: [
+            {
+              animation: { width: "40%", padding: 48 },
+              scroll: { start: "top+=200", end: "+=1000", pin: false },
+            },
+          ],
+        },
+         {
+          selector: ".row-02 .text-area .title",
+          steps: [
+            {
+              animation: { y:-32 ,opacity:1,},
+              scroll: { start: "top+=1000", end: "+=1040", pin: false },
+            },
+          ],
+        },
+        {
+          selector: ".row-02 .text-area .text-content",
+          steps: [
+            {
+              animation: { y:-32 ,opacity:1,},
+              scroll: { start: "top+=1200", end: "+=1240", pin: false },
             },
           ],
         },
@@ -74,16 +101,34 @@ export const indexdrop = {
           steps: [
             {
               animation: {},
-              scroll: { start: "top top", end: "+=2000", pin: true },
+              scroll: { start: "top top", end: "+=4000", pin: true },
             },
           ],
         },
-         {
+        {
           selector: ".row-03 .r3-img ",
           steps: [
             {
-              animation: { width: "60%",padding:16 },
+              animation: { width: "60%", padding: 16 },
               scroll: { start: "top+=200", end: "+=1000", pin: false },
+            },
+          ],
+        },
+        {
+          selector: ".row-04",
+          steps: [
+            {
+              animation: {},
+              scroll: { start: "top top", end: "+=4000", pin: true },
+            },
+          ],
+        },
+        {
+          selector: ".row-04 .horizontal-area",
+          steps: [
+            {
+              animation: { x: "-180vw" },
+              scroll: { start: "top 20%", end: "+=3600", pin: false },
             },
           ],
         },
@@ -96,7 +141,7 @@ export const indexdrop = {
       });
     },
 
-    // 你的 scrollAnimation 保留給 row
+    // scrollAnimation 給 row
     scrollAnimation(selector, animation, scroll) {
       gsap.to(selector, {
         ...animation,
@@ -112,7 +157,7 @@ export const indexdrop = {
     },
 
     // block 改用 timeline 版本
-    blockSetAniTimeline() {
+    Row01BlockTimeline() {
       const blocks = [
         {
           selector: ".block1",
@@ -249,25 +294,29 @@ export const indexdrop = {
       ];
 
       blocks.forEach(({ selector, initial, steps, scrollTrigger }) => {
-        const tl = gsap.timeline({
-          scrollTrigger: {
-            trigger: selector,
-            start: scrollTrigger.start,
-            end: scrollTrigger.end,
-            scrub: true,
-            markers: true,
-          },
-        });
-
-        if (initial) {
-          tl.set(selector, initial);
-        }
-
-        steps.forEach((step) => {
-          tl.to(selector, { ...step });
-        });
+        this.scrollTimeline(selector, initial, steps, scrollTrigger);
       });
     },
+    // timeline 版本
+    scrollTimeline(selector, initial, steps, scroll) {
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: selector,
+          start: scroll.start,
+          end: scroll.end,
+          scrub: true,
+          markers: true,
+        },
+      });
+
+      if (initial) {
+        tl.set(selector, initial);
+      }
+
+      steps.forEach((step) => {
+        tl.to(selector, { ...step });
+      });
+    }
 
 
   },
