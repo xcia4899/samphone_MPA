@@ -4,6 +4,13 @@ $color-lightkred: #ee1d23;
 $color-white: #f0f0f0;
 $color-black: #0f0f0f;
 
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
 body {
   background-color: $color-darkred;
   overflow-x: hidden;
@@ -97,8 +104,8 @@ body.no-scroll {
 //---------------------------------------------------
 .my-navbar {
   position: absolute;
-  background-color: rgba($color-red, 0.8) !important;
-  backdrop-filter: blur(12px);
+  background-color: rgba($color-red, 0.9) !important;
+  backdrop-filter: blur(2px);
   margin: 32px 32px 0;
   border-radius: 30px;
   padding: 8px 30px;
@@ -125,10 +132,10 @@ body.no-scroll {
     }
 
     .my-offcanvas {
-      margin: -32px;
+      margin: -32px -64px;
       height: 100vh;
-
-      background-color: $color-darkred !important;
+      right: 0;
+      background-color: $color-red !important;
       border: none;
 
       .offcanvas-header {
@@ -321,11 +328,13 @@ body.no-scroll {
     display: flex;
     flex-direction: column;
     gap: 16px;
-  
+
     .title {
-      font-size: 24px;
+      font-size: 30px;
       opacity: 0;
+      margin-top: 64px;
     }
+
     .text-content {
       font-size: 18px;
       opacity: 0;
@@ -343,6 +352,28 @@ body.no-scroll {
   height: 100vh;
   display: flex;
   justify-content: flex-end;
+
+  .text-area {
+    // position: absolute;
+    width: 0%;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    .title {
+      font-size: 30px;
+      opacity: 0;
+      margin-top: 64px;
+    }
+
+    .text-content {
+      font-size: 18px;
+      opacity: 0;
+     
+    }
+  }
+
+
 }
 
 .row-04 {
@@ -351,7 +382,6 @@ body.no-scroll {
   border: 1px solid white;
   height: 100vh;
   padding: 16px;
-
 
   .hiddenarea {
     // border: 1px solid white;
@@ -362,7 +392,7 @@ body.no-scroll {
 
   .horizontal-area {
 
-    width: 260vw;
+    width: 3600px;
     height: 100%;
     transform: translate(100vw, 0);
     display: flex;
@@ -389,4 +419,86 @@ body.no-scroll {
 
 .row-05 {
   height: 600px;
+}
+
+//-------------------------------
+.site-footer {
+  background-color: $color-red;
+  padding: 32px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+
+  img {
+    max-width: 300px;
+  }
+
+  p {
+    color: $color-white;
+    margin: 0;
+  }
+
+  a {
+    color: $color-white;
+    text-decoration: none;
+  }
+
+  h3 {
+    font-size: 24px;
+  }
+
+  hr {
+    margin: 8px 0;
+  }
+
+  .footer-top {
+    display: flex;
+    align-items: center;
+    // justify-content: center;
+  }
+
+  .footer-container {
+    display: flex;
+    justify-content: space-evenly;
+
+    gap: 24px;
+
+    .footer-content {
+      // min-height: 400px;
+      flex: 2;
+
+      p {
+        padding: 4px 0px;
+      }
+    }
+
+    .footer-section {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      // width: 200px;
+      ul {
+        padding: 0;
+      }
+
+      li {
+        list-style: none;
+
+        margin: 0;
+        padding: 4px 0px;
+      }
+    }
+  }
+
+  .footer-bottom {
+    width: 100%;
+    // text-align: right;
+
+    p {
+      font-size: 14px;
+
+    }
+  }
 }

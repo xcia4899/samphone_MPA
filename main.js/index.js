@@ -12,13 +12,16 @@ export const indexdrop = {
         document.body.classList.remove("no-scroll");
 
         this.$nextTick(() => {
+
           gsap.registerPlugin(ScrollTrigger);
 
           this.rowSetAni();
           this.Row01BlockTimeline();  // 改用 timeline 版
+
         });
       }
     },
+
 
     // row 固定動畫
     rowSetAni() {
@@ -28,7 +31,7 @@ export const indexdrop = {
           steps: [
             {
               animation: { top: 300 },
-              scroll: { start: "top top", end: "+=1000", pin: false },
+              scroll: { start: "top top", end: "+=1000", },
             },
           ],
         },
@@ -65,7 +68,8 @@ export const indexdrop = {
           steps: [
             {
               animation: { width: "60%", padding: 16 },
-              scroll: { start: "top+=200", end: "+=1000", pin: false },
+              scroll: { start: "top+=200", end: "+=600", },
+              // markers:true,
             },
           ],
         },
@@ -74,30 +78,57 @@ export const indexdrop = {
           steps: [
             {
               animation: { width: "40%", padding: 48 },
-              scroll: { start: "top+=200", end: "+=1000", pin: false },
+              scroll: { start: "top+=200", end: "+=600", },
+              // markers:true,
             },
           ],
         },
-         {
+        {
           selector: ".row-02 .text-area .title",
           steps: [
             {
-              animation: { y:-32 ,opacity:1,},
-              scroll: { start: "top+=1000", end: "+=1040", pin: false },
+              animation: { y: -32, opacity: 1, },
+              scroll: { start: "top+=600 top", end: "+=600", },
+              // markers:true,
             },
           ],
         },
         {
-          selector: ".row-02 .text-area .text-content",
+
+          selector: ".row-02 .text-area .content-01",
+          trigger: ".row-02 .text-area .title",
           steps: [
             {
-              animation: { y:-32 ,opacity:1,},
-              scroll: { start: "top+=1200", end: "+=1240", pin: false },
+              animation: { y: -32, opacity: 1, },
+              scroll: { start: "top+=1000 top", end: "+=600", },
+              // markers:true,
             },
           ],
         },
         {
-          selector: ".row-03",
+          selector: ".row-02 .text-area .content-02",
+          trigger: ".row-02 .text-area .title",
+          steps: [
+            {
+              animation: { y: -32, opacity: 1, },
+              scroll: { start: "top+=1400 top", end: "+=600", },
+              // markers: true,
+            },
+          ],
+        },
+        {
+          selector: ".row-02 .text-area .content-03",
+          trigger: ".row-02 .text-area .title",
+          steps: [
+            {
+              animation: { y: -32, opacity: 1, },
+              scroll: { start: "top+=1800 top", end: "+=600", },
+              // markers: true,
+            },
+          ],
+        },
+       {
+          selector: ".row-03 ",
           steps: [
             {
               animation: {},
@@ -110,16 +141,72 @@ export const indexdrop = {
           steps: [
             {
               animation: { width: "60%", padding: 16 },
-              scroll: { start: "top+=200", end: "+=1000", pin: false },
+              scroll: { start: "top+=200", end: "+=600", },
+              // markers:true,
             },
           ],
         },
+        {
+          selector: ".row-03 .text-area ",
+          steps: [
+            {
+              animation: { width: "40%", padding: 48 },
+              scroll: { start: "top+=200", end: "+=600", },
+              // markers:true,
+            },
+          ],
+        },
+        {
+          selector: ".row-03 .text-area .title",
+          steps: [
+            {
+              animation: { y: -32, opacity: 1, },
+              scroll: { start: "top+=600 top", end: "+=600", },
+              // markers:true,
+            },
+          ],
+        },
+        {
+
+          selector: ".row-03 .text-area .content-01",
+          trigger: ".row-03 .text-area .title",
+          steps: [
+            {
+              animation: { y: -32, opacity: 1, },
+              scroll: { start: "top+=1000 top", end: "+=600", },
+              // markers:true,
+            },
+          ],
+        },
+        {
+          selector: ".row-03 .text-area .content-02",
+          trigger: ".row-03 .text-area .title",
+          steps: [
+            {
+              animation: { y: -32, opacity: 1, },
+              scroll: { start: "top+=1400 top", end: "+=600", },
+              // markers: true,
+            },
+          ],
+        },
+        {
+          selector: ".row-03 .text-area .content-03",
+          trigger: ".row-03 .text-area .title",
+          steps: [
+            {
+              animation: { y: -32, opacity: 1, },
+              scroll: { start: "top+=1800 top", end: "+=600", },
+              // markers: true,
+            },
+          ],
+        },
+
         {
           selector: ".row-04",
           steps: [
             {
               animation: {},
-              scroll: { start: "top top", end: "+=4000", pin: true },
+              scroll: { start: "top top", end: "+=3000", pin: true },
             },
           ],
         },
@@ -127,34 +214,36 @@ export const indexdrop = {
           selector: ".row-04 .horizontal-area",
           steps: [
             {
-              animation: { x: "-180vw" },
-              scroll: { start: "top 20%", end: "+=3600", pin: false },
+              animation: { x: "-66%" },
+              scroll: { start: "top 20%", end: "+=3000", },
             },
           ],
         },
       ];
 
-      rows.forEach(({ selector, steps }) => {
-        steps.forEach(({ animation, scroll }) => {
-          this.scrollAnimation(selector, animation, scroll);
+      rows.forEach(({ selector, steps, trigger }) => {
+        steps.forEach(({ animation, scroll, markers }) => {
+          this.scrollAnimation(selector, animation, scroll, trigger, markers);
         });
       });
+
     },
 
     // scrollAnimation 給 row
-    scrollAnimation(selector, animation, scroll) {
+    scrollAnimation(selector, animation, scroll, trigger, markers = false) {
       gsap.to(selector, {
         ...animation,
         scrollTrigger: {
-          trigger: selector,
+          trigger: trigger || selector,
           start: scroll.start,
           end: scroll.end,
           scrub: true,
           pin: scroll.pin || false,
-          markers: true,
+          markers: markers,
         },
       });
     },
+
 
     // block 改用 timeline 版本
     Row01BlockTimeline() {
@@ -305,7 +394,7 @@ export const indexdrop = {
           start: scroll.start,
           end: scroll.end,
           scrub: true,
-          markers: true,
+          // markers: true,
         },
       });
 
@@ -316,11 +405,22 @@ export const indexdrop = {
       steps.forEach((step) => {
         tl.to(selector, { ...step });
       });
-    }
+    },
+
 
 
   },
   mounted() {
     document.body.classList.add("no-scroll");
+    let resizeTimer;
+
+    window.addEventListener("resize", () => {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(() => {
+        const vh = window.innerHeight * 0.01;
+        document.documentElement.style.setProperty('--vh', `${vh}px`);
+        ScrollTrigger.refresh();
+      }, 200);
+    });
   },
 };
