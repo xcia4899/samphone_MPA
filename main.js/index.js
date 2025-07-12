@@ -40,7 +40,8 @@ export const indexdrop = {
           steps: [
             {
               animation: {},
-              scroll: { start: "top top", end: "+=3600", pin: true },
+              scroll: { start: "top top", end: "+=6400", pin: true },
+              // markers: true,
             },
           ],
         },
@@ -127,7 +128,7 @@ export const indexdrop = {
             },
           ],
         },
-       {
+        {
           selector: ".row-03 ",
           steps: [
             {
@@ -249,152 +250,459 @@ export const indexdrop = {
     Row01BlockTimeline() {
       const blocks = [
         {
+          selector: ".textani-LT .anitlogo",
+          initial: { opacity:1,x: "-100%", },
+          // markers: true,
+          steps: [
+           { opacity:1,x: "-100%", duration: 2 },
+            { opacity:1,x: "-100%", duration: 12 },
+
+            { opacity:1,x: "0%", duration: 8 },
+            { opacity:1,x: "0%", duration: 16 },
+
+            { opacity:1,x: "0%", duration: 0 },
+            { opacity:1,x: "0%", duration: 6 },
+
+            { opacity:0,x: "-100%", duration: 10 },
+            { opacity:0,x: "-100%", duration: 4 },
+
+            { opacity:0,x: "-100%", duration: 10 },
+          ],
+          scrollTrigger: {
+            trigger: ".block1",
+            start: "top+=200 20%",
+            end: "top+=7000 top",
+          }
+        },
+        {
+          selector: ".textani-RT .anitlogo",
+          initial: { opacity:0,x: "0%", },
+          // markers: true,
+          steps: [
+            { opacity:0,x: "0%", duration: 2 },
+            { opacity:1,x: "0%", duration: 14 },
+
+            { opacity:1,x: "0%", duration: 6 },
+            { opacity:1,x: "100%", duration: 12 },
+
+            { opacity:1,x: "100%", duration: 4 },
+            { opacity:0,x: "100%", duration: 10 },
+
+            { opacity:0,x: "100%", duration: 4 },
+            { opacity:0,x: "100%", duration: 4 },
+
+            { opacity:0,x: "100%", duration: 10 },
+          ],
+          scrollTrigger: {
+            trigger: ".block1",
+            start: "top+=200 20%",
+            end: "top+=4000 top",
+          }
+        },
+        {
+          selector: ".aniwe",
+          initial: { y: "100%", },
+          // markers: true,
+          steps: [
+            { y: "100%", duration: 2 },
+            { y: "0%", duration: 14 },
+
+            { y: "0%", duration: 6 },
+            { y: "100%", duration: 10 },
+
+            { y: "100%", duration: 6 },
+            { y: "100%", duration: 10 },
+
+            { y: "100%", duration: 4 },
+            { y: "100%", duration: 4 },
+
+            { y: "100%", duration: 10 },
+          ],
+          scrollTrigger: {
+            trigger: ".block1",
+            start: "top+=0 20%",
+            end: "top+=4000 top",
+          }
+        },
+        {
+          selector: ".aniare",
+          initial: { y: "100%", },
+          // markers: true,
+          steps: [
+           { y: "100%", duration: 2 },
+            { y: "0%", duration: 14 },
+
+            { y: "0%", duration: 6 },
+            { y: "100%", duration: 10 },
+
+            { y: "100%", duration: 6 },
+            { y: "100%", duration: 10 },
+
+            { y: "100%", duration: 4 },
+            { y: "100%", duration: 4 },
+
+            { y: "100%", duration: 10 },
+          ],
+          scrollTrigger: {
+            trigger: ".block1",
+            start: "top+=100 20%",
+            end: "top+=4000 top",
+          }
+        },
+        {
+          selector: ".anitech",
+          initial: { y: "-100%", },
+          // markers: true,
+          steps: [
+            { y: "-100%", duration: 10 },
+            { y: "-100%", duration: 6 },
+
+            { y: "-100%", duration: 8 },
+            { y: "0%", duration: 12 },
+
+            { y: "0%", duration: 2 },
+            { y: "0%", duration: 12 },
+
+            { y: "100%", duration: 10 },
+            { y: "100%", duration: 0 },
+
+            { y: "100%", duration: 10 },
+          ],
+          scrollTrigger: {
+            trigger: ".block1",
+            start: "top+=100 20%",
+            end: "top+=4000 top",
+          }
+        },
+        {
+          selector: ".anitpro",
+          initial: { y: "-100%", },
+          // markers: true,
+          steps: [
+             { y: "-100%", duration: 10 },
+            { y: "-100%", duration: 6 },
+
+            { y: "-100%", duration: 6 },
+            { y: "0%", duration: 10 },
+
+            { y: "0%", duration: 6 },
+            { y: "0%", duration: 16 },
+
+            { y: "100%", duration: 16 },
+            { y: "100%", duration: 0 },
+
+            { y: "100%", duration: 0 },
+          ],
+          scrollTrigger: {
+            trigger: ".block1",
+            start: "top+=100 20%",
+            end: "top+=4000 top",
+          }
+        },
+        {
           selector: ".block1",
           initial: { scaleY: 1 },
+          // markers: true,
           steps: [
-            { scaleY: 0, duration: 2 },
-            { scaleY: 1, duration: 4, delay: 7 },
-            { scaleY: 0, duration: 4, delay: 6 },
-            { scaleY: 1, duration: 4, delay: 3 },
+            { scaleY: 0, duration: 10 },
+            { scaleY: 0, duration: 6 },
+
+            { scaleY: 1, duration: 6 },
+            { scaleY: 1, duration: 10 },
+
+            { scaleY: 1, duration: 6 },
+            { scaleY: 1, duration: 10 },
+
+            { scaleY: 0, duration: 4 },
+            { scaleY: 0, duration: 4 },
+
+            { scaleY: 1, duration: 10 },
           ],
-          scrollTrigger: { start: "600", end: "5000" },
+          scrollTrigger: {
+            trigger: ".block1",
+            start: "top+=-300 20%",
+            end: "top+=7000 top",
+          }
         },
         {
           selector: ".block2",
           initial: { scaleY: 1 },
           steps: [
-            { scaleY: 0, duration: 2 },
-            { scaleY: 0, duration: 4, delay: 6 },
-            { scaleY: 0, duration: 4, delay: 6 },
-            { scaleY: 1, duration: 4, delay: 3 },
+            { scaleY: 0, duration: 10 },
+            { scaleY: 0, duration: 6 },
+
+            { scaleY: 0, duration: 6 },
+            { scaleY: 0, duration: 10 },
+
+            { scaleY: 1, duration: 6 },
+            { scaleY: 1, duration: 10 },
+
+            { scaleY: 0, duration: 4 },
+            { scaleY: 0, duration: 4 },
+
+            { scaleY: 1, duration: 10 },
           ],
-          scrollTrigger: { start: "650", end: "5000" },
+          scrollTrigger: {
+            trigger: ".block1",
+            start: "top+=-200 20%",
+            end: "top+=7000 top",
+          }
         },
         {
           selector: ".block3",
           initial: { scaleY: 1 },
           steps: [
-            { scaleY: 0, duration: 2 },
-            { scaleY: 0, duration: 4, delay: 6 },
-            { scaleY: 0, duration: 4, delay: 6 },
-            { scaleY: 1, duration: 4, delay: 3 },
+            { scaleY: 0, duration: 10 },
+            { scaleY: 0, duration: 6 },
+
+            { scaleY: 0, duration: 6 },
+            { scaleY: 0, duration: 10 },
+
+            { scaleY: 0, duration: 6 },
+            { scaleY: 0, duration: 10 },
+
+            { scaleY: 0, duration: 4 },
+            { scaleY: 0, duration: 4 },
+
+            { scaleY: 1, duration: 10 },
           ],
-          scrollTrigger: { start: "700", end: "5000" },
+          scrollTrigger: {
+            trigger: ".block1",
+            start: "top+=-100 20%",
+            end: "top+=7000 top",
+          }
         },
         {
           selector: ".block4",
           initial: { scaleY: 1 },
           steps: [
-            { scaleY: 1, duration: 2 },
-            { scaleY: 0, duration: 4, delay: 6 },
-            { scaleY: 0, duration: 4, delay: 6 },
-            { scaleY: 1, duration: 4, delay: 3 },
+            { scaleY: 1, duration: 10 },
+            { scaleY: 1, duration: 6 },
+
+            { scaleY: 0, duration: 6 },
+            { scaleY: 0, duration: 10 },
+
+            { scaleY: 0, duration: 6 },
+            { scaleY: 0, duration: 10 },
+
+            { scaleY: 0, duration: 4 },
+            { scaleY: 0, duration: 4 },
+
+            { scaleY: 1, duration: 10 },
           ],
-          scrollTrigger: { start: "750", end: "5000" },
+          scrollTrigger: {
+            trigger: ".block1",
+            start: "top+=0 20%",
+            end: "top+=7000 top",
+          }
         },
         {
           selector: ".block5",
           initial: { scaleY: 1 },
           steps: [
-            { scaleY: 0, duration: 2 },
-            { scaleY: 0, duration: 4, delay: 6 },
-            { scaleY: 0, duration: 4, delay: 6 },
-            { scaleY: 1, duration: 4, delay: 3 },
+            { scaleY: 0, duration: 10 },
+            { scaleY: 0, duration: 6 },
+
+            { scaleY: 0, duration: 6 },
+            { scaleY: 0, duration: 10 },
+
+            { scaleY: 0, duration: 6 },
+            { scaleY: 0, duration: 10 },
+
+            { scaleY: 0, duration: 4 },
+            { scaleY: 0, duration: 4 },
+
+            { scaleY: 1, duration: 10 },
           ],
-          scrollTrigger: { start: "800", end: "5000" },
+          scrollTrigger: {
+            trigger: ".block1",
+            start: "top+=-300 30%",
+            end: "top+=7000 top",
+          }
         },
         {
           selector: ".block6",
           initial: { scaleY: 1 },
           steps: [
-            { scaleY: 0, duration: 2 },
-            { scaleY: 0, duration: 4, delay: 6 },
-            { scaleY: 0, duration: 4, delay: 6 },
-            { scaleY: 1, duration: 4, delay: 3 },
+            { scaleY: 0, duration: 10 },
+            { scaleY: 0, duration: 6 },
+
+            { scaleY: 0, duration: 6 },
+            { scaleY: 0, duration: 10 },
+
+            { scaleY: 0, duration: 6 },
+            { scaleY: 0, duration: 10 },
+
+            { scaleY: 0, duration: 4 },
+            { scaleY: 0, duration: 4 },
+
+            { scaleY: 1, duration: 10 },
           ],
-          scrollTrigger: { start: "850", end: "5000" },
+          scrollTrigger: {
+            trigger: ".block1",
+            start: "top+=-200 20%",
+            end: "top+=7000 top",
+          }
         },
         {
           selector: ".block7",
           initial: { scaleY: 1 },
           steps: [
-            { scaleY: 1, duration: 2 },
-            { scaleY: 0, duration: 4, delay: 6 },
-            { scaleY: 0, duration: 4, delay: 6 },
-            { scaleY: 1, duration: 4, delay: 3 },
+            { scaleY: 1, duration: 10 },
+            { scaleY: 1, duration: 6 },
+
+            { scaleY: 1, duration: 6 },
+            { scaleY: 1, duration: 10 },
+
+            { scaleY: 0, duration: 6 },
+            { scaleY: 0, duration: 10 },
+
+            { scaleY: 0, duration: 4 },
+            { scaleY: 0, duration: 4 },
+
+            { scaleY: 1, duration: 10 },
           ],
-          scrollTrigger: { start: "900", end: "5000" },
+          scrollTrigger: {
+            trigger: ".block1",
+            start: "top+=-100 30%",
+            end: "top+=7000 top",
+          }
         },
         {
           selector: ".block8",
           initial: { scaleY: 1 },
           steps: [
-            { scaleY: 0, duration: 2 },
-            { scaleY: 1, duration: 4, delay: 6 },
-            { scaleY: 0, duration: 4, delay: 6 },
-            { scaleY: 1, duration: 4, delay: 3 },
+            { scaleY: 0, duration: 10 },
+            { scaleY: 0, duration: 6 },
+
+            { scaleY: 1, duration: 6 },
+            { scaleY: 1, duration: 10 },
+
+            { scaleY: 0, duration: 6 },
+            { scaleY: 0, duration: 10 },
+
+            { scaleY: 0, duration: 4 },
+            { scaleY: 0, duration: 4 },
+
+            { scaleY: 1, duration: 10 },
           ],
-          scrollTrigger: { start: "900", end: "5000" },
+          scrollTrigger: {
+            trigger: ".block1",
+            start: "top+=0 30%",
+            end: "top+=7000 top",
+          }
         },
         {
           selector: ".block9",
           initial: { scaleY: 1 },
           steps: [
-            { scaleY: 1, duration: 2 },
-            { scaleY: 0, duration: 4, delay: 6 },
-            { scaleY: 0, duration: 4, delay: 6 },
-            { scaleY: 1, duration: 4, delay: 3 },
+            { scaleY: 1, duration: 10 },
+            { scaleY: 1, duration: 6 },
+
+            { scaleY: 0, duration: 6 },
+            { scaleY: 0, duration: 10 },
+
+            { scaleY: 1, duration: 6 },
+            { scaleY: 1, duration: 10 },
+
+            { scaleY: 0, duration: 4 },
+            { scaleY: 0, duration: 4 },
+
+            { scaleY: 1, duration: 10 },
           ],
-          scrollTrigger: { start: "850", end: "5000" },
+          scrollTrigger: {
+            trigger: ".block1",
+            start: "top+=-300 40%",
+            end: "top+=7000 top",
+          }
         },
         {
           selector: ".block10",
           initial: { scaleY: 1 },
           steps: [
-            { scaleY: 1, duration: 2 },
-            { scaleY: 1, duration: 4, delay: 6 },
-            { scaleY: 0, duration: 4, delay: 6 },
-            { scaleY: 1, duration: 4, delay: 3 },
+            { scaleY: 1, duration: 10 },
+            { scaleY: 1, duration: 6 },
+
+            { scaleY: 1, duration: 6 },
+            { scaleY: 1, duration: 10 },
+
+            { scaleY: 0, duration: 6 },
+            { scaleY: 0, duration: 10 },
+
+            { scaleY: 0, duration: 4 },
+            { scaleY: 0, duration: 4 },
+
+            { scaleY: 1, duration: 10 },
           ],
-          scrollTrigger: { start: "950", end: "5000" },
+          scrollTrigger: {
+            trigger: ".block1",
+            start: "top+=-200 40%",
+            end: "top+=7000 top",
+          }
         },
         {
           selector: ".block11",
           initial: { scaleY: 1 },
           steps: [
-            { scaleY: 0, duration: 2 },
-            { scaleY: 1, duration: 4, delay: 6 },
-            { scaleY: 0, duration: 4, delay: 6 },
-            { scaleY: 1, duration: 4, delay: 3 },
+            { scaleY: 1, duration: 10 },
+            { scaleY: 1, duration: 6 },
+
+            { scaleY: 0, duration: 6 },
+            { scaleY: 0, duration: 10 },
+
+            { scaleY: 1, duration: 6 },
+            { scaleY: 1, duration: 10 },
+
+            { scaleY: 0, duration: 4 },
+            { scaleY: 0, duration: 4 },
+
+            { scaleY: 1, duration: 10 },
           ],
-          scrollTrigger: { start: "850", end: "5000" },
+          scrollTrigger: {
+            trigger: ".block1",
+            start: "top+=-100 40%",
+            end: "top+=7000 top",
+          }
         },
         {
           selector: ".block12",
           initial: { scaleY: 1 },
           steps: [
-            { scaleY: 1, duration: 2 },
-            { scaleY: 1, duration: 4, delay: 6 },
-            { scaleY: 0, duration: 4, delay: 6 },
-            { scaleY: 1, duration: 4, delay: 3 },
+            { scaleY: 0, duration: 10 },
+            { scaleY: 0, duration: 6 },
+
+            { scaleY: 1, duration: 6 },
+            { scaleY: 1, duration: 10 },
+
+            { scaleY: 1, duration: 6 },
+            { scaleY: 1, duration: 10 },
+
+            { scaleY: 0, duration: 4 },
+            { scaleY: 0, duration: 4 },
+
+            { scaleY: 1, duration: 10 },
           ],
-          scrollTrigger: { start: "950", end: "5000" },
+          scrollTrigger: {
+            trigger: ".block1",
+            start: "top+=0 40%",
+            end: "top+=7000 top",
+          }
         },
       ];
 
-      blocks.forEach(({ selector, initial, steps, scrollTrigger }) => {
-        this.scrollTimeline(selector, initial, steps, scrollTrigger);
+      blocks.forEach(({ selector, initial, steps, scrollTrigger, markers }) => {
+        this.scrollTimeline(selector, initial, steps, scrollTrigger, markers);
       });
     },
     // timeline 版本
-    scrollTimeline(selector, initial, steps, scroll) {
+    scrollTimeline(selector, initial, steps, scroll, markers = false) {
       const tl = gsap.timeline({
         scrollTrigger: {
-          trigger: selector,
+          trigger: scroll.trigger || selector,
           start: scroll.start,
           end: scroll.end,
           scrub: true,
-          // markers: true,
+          markers: markers,
         },
       });
 

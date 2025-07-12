@@ -242,22 +242,73 @@ body.no-scroll {
   display: flex;
   align-items: center;
   justify-content: center;
-  transform-origin: 0% 100%;
   transform: scaleY(1);
-}
-.row-01 .block1,
-.row-01 .block2,
-.row-01 .block3,
-.row-01 .block4,
-.row-01 .block5,
-.row-01 .block6,
-.row-01 .block7,
-.row-01 .block8,
-.row-01 .block9,
-.row-01 .block10,
-.row-01 .block11,
-.row-01 .block12 {
   transform-origin: left bottom;
+}
+.row-01 .aniarea {
+  position: absolute;
+  height: 160px;
+  color: #f0f0f0;
+  font-weight: bold;
+  overflow: hidden;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+}
+.row-01 .ani {
+  display: inline-block;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+.row-01 .textani-LB {
+  left: 0;
+  bottom: 0;
+  width: 50%;
+  margin: 0 0px 16px 16px;
+  font-size: 10vw;
+}
+.row-01 .textani-LT {
+  left: 0;
+  top: 4%;
+  width: 25%;
+  margin: 0 0px 0px 16px;
+}
+.row-01 .textani-RT {
+  right: 0;
+  top: 4%;
+  width: 25%;
+  margin: 0 16px 0px 0px;
+  justify-content: flex-end;
+}
+.row-01 .textani-RB {
+  height: 100px;
+  right: 0;
+  bottom: 4%;
+  margin: 0 16px 16px 0px;
+  width: 33.3333333333%;
+  font-size: 4vw;
+  justify-content: flex-end;
+}
+.row-01 .textani-RM {
+  right: 0%;
+  bottom: 36%;
+  width: 50%;
+}
+.row-01 .aniare {
+  margin-left: 24px;
+}
+.row-01 .anitech {
+  position: absolute;
+  left: 0;
+}
+.row-01 .anitlogo {
+  opacity: 0;
+}
+.row-01 .anitlogo {
+  width: 90%;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 
 .row-02 {
