@@ -2,10 +2,61 @@ export const indexdrop = {
   data() {
     return {
       introPlayed: false,
-
+      openedCard: null,
+      carddata: [
+        
+          {
+            title: "鑄造",
+            image: "../images/row4/IMG_7743.jpg",
+            content: "將金屬原料熔化後倒入模具，形成樂器主要的金屬部件，是每一支樂器誕生的起點。"
+          },
+          {
+            title: "焊接",
+            image: "../images/row4/IMG_7785.jpg",
+            content: "透過高溫焊接將各個零件精準結合，確保結構穩固與氣密性，是影響音色的重要步驟。"
+          },
+          {
+            title: "研磨",
+            image: "../images/row4/IMG_7774.jpg",
+            content: "使用機械或手工方式打磨金屬表面，使其平滑細緻，為後續工序做準備。"
+          },
+          {
+            title: "刻花",
+            image: "../images/row4/IMG_7393.jpg",
+            content: "在樂器表面雕刻出細緻紋樣，不僅增添美感，也是品牌識別的一部分。"
+          },
+          {
+            title: "拋光",
+            image: "../images/row4/IMG_7782.jpg",
+            content: "使用拋光輪與拋光膏讓金屬表面光亮如鏡，使外觀更具質感與專業度。"
+          },
+          {
+            title: "上漆",
+            image: "../images/row4/IMG_7782.jpg",
+            content: "根據需求噴上透明或色彩漆層，保護金屬不氧化，並強化視覺風格。"
+          },
+          {
+            title: "組裝",
+            image: "../images/row4/IMG_9475.jpg",
+            content: "將鍵盤、軸桿、彈簧等機械零件安裝至本體，講求精密與平衡。"
+          },
+          {
+            title: "調音",
+            image: "../images/row4/IMG_7411.jpg",
+            content: "由技師細心調整音準與吹奏手感，確保每一支樂器皆具備專業表現力。"
+          }
+      ],
     };
   },
   methods: {
+    cardOpenToogle(key) {
+      console.log(key + "-111111");
+      if (this.openedCard === key) {
+        this.openedCard = null;
+      } else {
+        this.openedCard = key;
+      }
+    },
     onIntroEnd(event) {
       if (event.animationName === "fadeOut") {
         this.introPlayed = true;
@@ -21,8 +72,6 @@ export const indexdrop = {
         });
       }
     },
-
-
     // row 固定動畫
     rowSetAni() {
       const rows = [
@@ -207,7 +256,7 @@ export const indexdrop = {
           steps: [
             {
               animation: {},
-              scroll: { start: "top top", end: "+=3000", pin: true },
+              scroll: { start: "top top", end: "+=4600", pin: true },
             },
           ],
         },
@@ -215,8 +264,8 @@ export const indexdrop = {
           selector: ".row-04 .horizontal-area",
           steps: [
             {
-              animation: { x: "-66%" },
-              scroll: { start: "top 20%", end: "+=3000", },
+              animation: { x: "-74%" },
+              scroll: { start: "top 20%", end: "+=4600", },
             },
           ],
         },
@@ -229,7 +278,6 @@ export const indexdrop = {
       });
 
     },
-
     // scrollAnimation 給 row
     scrollAnimation(selector, animation, scroll, trigger, markers = false) {
       gsap.to(selector, {
@@ -244,29 +292,69 @@ export const indexdrop = {
         },
       });
     },
-
-
     // block 改用 timeline 版本
     Row01BlockTimeline() {
       const blocks = [
         {
-          selector: ".textani-LT .anitlogo",
-          initial: { opacity:1,x: "-100%", },
+          selector: ".circle",
+          initial: { opacity: 0, left: "0%", top: "100%" },
           // markers: true,
           steps: [
-           { opacity:1,x: "-100%", duration: 2 },
-            { opacity:1,x: "-100%", duration: 12 },
+            { opacity: 1, left: "0%", top: "0%", duration: 16 },
+            { opacity: 1, left: "0%", top: "0%", duration: 6 },
+            { opacity: 1, left: "100%", top: "0% ", duration: 20 },
+            { opacity: 1, left: "100%", top: "0% ", duration: 6 },
+            { opacity: 1, left: "100%", top: "100%", duration: 16 },
+            { opacity: 1, left: "100%", top: "100%", duration: 6 },
+            { opacity: 0, left: "100%", top: "120%", duration: 6 },
+            { opacity: 0, left: "100%", top: "120%", duration: 16 },
+          ],
+          scrollTrigger: {
+            trigger: ".block1",
+            start: "top+=200 20%",
+            end: "top+=6000 top",
+          }
+        },
+        {
+          selector: ".anitsol",
+          initial: { opacity: 1, y: "100%", },
+          // markers: true,
+          steps: [
 
-            { opacity:1,x: "0%", duration: 8 },
-            { opacity:1,x: "0%", duration: 16 },
+            { y: "100%", duration: 6 },
 
-            { opacity:1,x: "0%", duration: 0 },
-            { opacity:1,x: "0%", duration: 6 },
+            { y: "0%", duration: 10 },
+            { y: "0%", duration: 8 },
 
-            { opacity:0,x: "-100%", duration: 10 },
-            { opacity:0,x: "-100%", duration: 4 },
+            { y: "100%", opacity: 0, duration: 26 },
 
-            { opacity:0,x: "-100%", duration: 10 },
+
+            { y: "100%", opacity: 0, duration: 10 },
+          ],
+          scrollTrigger: {
+            trigger: ".block1",
+            start: "top+=3000 30%",
+            end: "top+=7000 top",
+          }
+        },
+        {
+          selector: ".textani-LT .anitlogo",
+          initial: { opacity: 1, x: "-100%", },
+          // markers: true,
+          steps: [
+            { opacity: 1, x: "-100%", duration: 2 },
+            { opacity: 1, x: "-100%", duration: 12 },
+
+            { opacity: 1, x: "0%", duration: 8 },
+            { opacity: 1, x: "0%", duration: 16 },
+
+            { opacity: 1, x: "0%", duration: 0 },
+            { opacity: 1, x: "0%", duration: 6 },
+
+            { opacity: 0, x: "-100%", duration: 10 },
+            { opacity: 0, x: "-100%", duration: 4 },
+
+            { opacity: 0, x: "-100%", duration: 10 },
           ],
           scrollTrigger: {
             trigger: ".block1",
@@ -276,22 +364,22 @@ export const indexdrop = {
         },
         {
           selector: ".textani-RT .anitlogo",
-          initial: { opacity:0,x: "0%", },
+          initial: { opacity: 0, x: "0%", },
           // markers: true,
           steps: [
-            { opacity:0,x: "0%", duration: 2 },
-            { opacity:1,x: "0%", duration: 14 },
+            { opacity: 0, x: "0%", duration: 2 },
+            { opacity: 1, x: "0%", duration: 14 },
 
-            { opacity:1,x: "0%", duration: 6 },
-            { opacity:1,x: "100%", duration: 12 },
+            { opacity: 1, x: "0%", duration: 6 },
+            { opacity: 1, x: "100%", duration: 12 },
 
-            { opacity:1,x: "100%", duration: 4 },
-            { opacity:0,x: "100%", duration: 10 },
+            { opacity: 1, x: "100%", duration: 4 },
+            { opacity: 0, x: "100%", duration: 10 },
 
-            { opacity:0,x: "100%", duration: 4 },
-            { opacity:0,x: "100%", duration: 4 },
+            { opacity: 0, x: "100%", duration: 4 },
+            { opacity: 0, x: "100%", duration: 4 },
 
-            { opacity:0,x: "100%", duration: 10 },
+            { opacity: 0, x: "100%", duration: 10 },
           ],
           scrollTrigger: {
             trigger: ".block1",
@@ -329,7 +417,7 @@ export const indexdrop = {
           initial: { y: "100%", },
           // markers: true,
           steps: [
-           { y: "100%", duration: 2 },
+            { y: "100%", duration: 2 },
             { y: "0%", duration: 14 },
 
             { y: "0%", duration: 6 },
@@ -347,6 +435,31 @@ export const indexdrop = {
             trigger: ".block1",
             start: "top+=100 20%",
             end: "top+=4000 top",
+          }
+        },
+        {
+          selector: ".aniImp",
+          initial: { y: "100%", },
+          // markers: true,
+          steps: [
+            { y: "100%", duration: 10 },
+            { y: "100%", duration: 6 },
+
+            { y: "100%", duration: 8 },
+            { y: "100%", duration: 6 },
+
+            { y: "0%", duration: 10 },
+            { y: "0%", duration: 6 },
+
+            { y: "100%", duration: 10 },
+            { y: "100%", duration: 4 },
+
+            { y: "100%", duration: 10 },
+          ],
+          scrollTrigger: {
+            trigger: ".block1",
+            start: "top+=300 20%",
+            end: "top+=7000 top",
           }
         },
         {
@@ -379,7 +492,7 @@ export const indexdrop = {
           initial: { y: "-100%", },
           // markers: true,
           steps: [
-             { y: "-100%", duration: 10 },
+            { y: "-100%", duration: 10 },
             { y: "-100%", duration: 6 },
 
             { y: "-100%", duration: 6 },
@@ -650,8 +763,8 @@ export const indexdrop = {
             { scaleY: 0, duration: 6 },
             { scaleY: 0, duration: 10 },
 
-            { scaleY: 1, duration: 6 },
-            { scaleY: 1, duration: 10 },
+            { scaleY: 0, duration: 6 },
+            { scaleY: 0, duration: 10 },
 
             { scaleY: 0, duration: 4 },
             { scaleY: 0, duration: 4 },
