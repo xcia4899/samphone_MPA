@@ -4,47 +4,55 @@ export const indexdrop = {
       introPlayed: false,
       openedCard: null,
       carddata: [
-        
-          {
-            title: "鑄造",
-            image: "../images/row4/IMG_7743.jpg",
-            content: "將金屬原料熔化後倒入模具，形成樂器主要的金屬部件，是每一支樂器誕生的起點。"
-          },
-          {
-            title: "焊接",
-            image: "../images/row4/IMG_7785.jpg",
-            content: "透過高溫焊接將各個零件精準結合，確保結構穩固與氣密性，是影響音色的重要步驟。"
-          },
-          {
-            title: "研磨",
-            image: "../images/row4/IMG_7774.jpg",
-            content: "使用機械或手工方式打磨金屬表面，使其平滑細緻，為後續工序做準備。"
-          },
-          {
-            title: "刻花",
-            image: "../images/row4/IMG_7393.jpg",
-            content: "在樂器表面雕刻出細緻紋樣，不僅增添美感，也是品牌識別的一部分。"
-          },
-          {
-            title: "拋光",
-            image: "../images/row4/IMG_7782.jpg",
-            content: "使用拋光輪與拋光膏讓金屬表面光亮如鏡，使外觀更具質感與專業度。"
-          },
-          {
-            title: "上漆",
-            image: "../images/row4/IMG_7782.jpg",
-            content: "根據需求噴上透明或色彩漆層，保護金屬不氧化，並強化視覺風格。"
-          },
-          {
-            title: "組裝",
-            image: "../images/row4/IMG_9475.jpg",
-            content: "將鍵盤、軸桿、彈簧等機械零件安裝至本體，講求精密與平衡。"
-          },
-          {
-            title: "調音",
-            image: "../images/row4/IMG_7411.jpg",
-            content: "由技師細心調整音準與吹奏手感，確保每一支樂器皆具備專業表現力。"
-          }
+
+        {
+          title: "鑄造",
+          image: "../images/row4/IMG_7743.jpg",
+          imagedetal: "../images/row4/IMG_7743.jpg",
+          content: "將金屬原料熔化後倒入模具，形成樂器主要的金屬部件，是每一支樂器誕生的起點。"
+        },
+        {
+          title: "焊接",
+          image: "../images/row4/IMG_7785.jpg",
+          imagedetal: "../images/row4/IMG_7743.jpg",
+          content: "透過高溫焊接將各個零件精準結合，確保結構穩固與氣密性，是影響音色的重要步驟。"
+        },
+        {
+          title: "研磨",
+          image: "../images/row4/IMG_7774.jpg",
+          imagedetal: "../images/row4/IMG_7743.jpg",
+          content: "使用機械或手工方式打磨金屬表面，使其平滑細緻，為後續工序做準備。"
+        },
+        {
+          title: "刻花",
+          image: "../images/row4/IMG_7393.jpg",
+          imagedetal: "../images/row4/IMG_7743.jpg",
+          content: "在樂器表面雕刻出細緻紋樣，不僅增添美感，也是品牌識別的一部分。"
+        },
+        {
+          title: "拋光",
+          image: "../images/row4/IMG_7782.jpg",
+          imagedetal: "../images/row4/IMG_7743.jpg",
+          content: "使用拋光輪與拋光膏讓金屬表面光亮如鏡，使外觀更具質感與專業度。"
+        },
+        {
+          title: "上漆",
+          image: "../images/row4/IMG_7411.jpg",
+          imagedetal: "../images/row4/IMG_7743.jpg",
+          content: "根據需求噴上透明或色彩漆層，保護金屬不氧化，並強化視覺風格。"
+        },
+        {
+          title: "組裝",
+          image: "../images/row4/IMG_9475.jpg",
+          imagedetal: "../images/row4/IMG_7743.jpg",
+          content: "將鍵盤、軸桿、彈簧等機械零件安裝至本體，講求精密與平衡。"
+        },
+        {
+          title: "調音",
+          image: "../images/row4/IMG_4425.jpg",
+          imagedetal: "../images/row4/IMG_7743.jpg",
+          content: "由技師細心調整音準與吹奏手感，確保每一支樂器皆具備專業表現力。"
+        }
       ],
     };
   },
@@ -68,7 +76,7 @@ export const indexdrop = {
 
           this.rowSetAni();
           this.Row01BlockTimeline();  // 改用 timeline 版
-
+          this.startBgTextLoop();//背景LOOP
         });
       }
     },
@@ -264,7 +272,7 @@ export const indexdrop = {
           selector: ".row-04 .horizontal-area",
           steps: [
             {
-              animation: { x: "-74%" },
+              animation: { x: "-84%" },
               scroll: { start: "top 20%", end: "+=4600", },
             },
           ],
@@ -827,21 +835,38 @@ export const indexdrop = {
         tl.to(selector, { ...step });
       });
     },
+    //自動跑動畫
+    startBgTextLoop() {
+      gsap.to(".bgText-t01", {
+        x: "-200vw",
+        duration: 30,
+        repeat: -1,
+        // yoyo: true,
+        ease: "linear",
+        delay:1,
+      });
+      gsap.to(".bgText-t02", {
+        x: "-200vw",
+        duration: 20,
+        repeat: -1,
+        // yoyo: true,
+        ease: "linear",
+      });
+      gsap.to(".bgText-t03", {
+        x: "-200vw",
+        duration: 32,
+        repeat: -1,
+        // yoyo: true,
+        ease: "linear",
+         delay:3,
+      });
+    },
 
 
 
   },
   mounted() {
     document.body.classList.add("no-scroll");
-    let resizeTimer;
-
-    window.addEventListener("resize", () => {
-      clearTimeout(resizeTimer);
-      resizeTimer = setTimeout(() => {
-        const vh = window.innerHeight * 0.01;
-        document.documentElement.style.setProperty('--vh', `${vh}px`);
-        ScrollTrigger.refresh();
-      }, 200);
-    });
+    
   },
 };

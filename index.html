@@ -22,7 +22,7 @@
       </div>
 
       <!-- 主畫面內容 -->
-      <div v-if="introPlayed">
+      <div v-if="introPlayed" class="bodyback">
         <header>
           <nav class="my-navbar navbar navbar-dark bg-dark fixed-top">
             <div class="my-catainer container-fluid">
@@ -100,7 +100,17 @@
           <div class="background-fixed"></div>
         </section>
         <div class="beforeRow"></div>
-
+        <div class="bgText">
+          <div class="bgText-t01">
+            <span>「吹奏靈魂・成就匠心」</span>
+          </div>
+          <div class="bgText-t02">
+            <span>「音色與工藝的結晶」</span>
+          </div>
+          <div class="bgText-t03">
+            <span>「只為一吹驚人」</span>
+          </div>
+        </div>
         <section class="row-01">
           <div class="bg-layer"></div>
           <div class="block-control">
@@ -196,9 +206,17 @@
                 :class="{ cardopen: openedCard === index }"
                 @click="cardOpenToogle(index)"
               >
-                <img class="pic" :src="item.image" :alt="item.title" />
+              <img class="pic" :src="item.image" :alt="item.title" />
+              <div class="content-bg" v-if="openedCard === index">
+                
+              </div>
                 <div class="title">{{ item.title }}</div>
-                <div class="content" v-if="openedCard === index">{{ item.content }}</div>
+                <div class="content" v-if="openedCard === index">
+                  <p>{{ item.content }}</p>
+                  <img class="imagedetal" :src="item.imagedetal" alt="">
+                </div>
+                <div v-if="openedCard !== index" class="undertext open">click Open</div>
+                <div v-if="openedCard == index" class="undertext close">click Close</div>
               </div>
             </div>
           </div>
