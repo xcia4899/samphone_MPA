@@ -22,10 +22,11 @@ body {
 }
 
 body.no-scroll {
+  overflow: hidden;
   background-image: url("../images/bg/J_03795.jpg");
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: top;
+  background-position: center;
 }
 
 .intro {
@@ -38,8 +39,7 @@ body.no-scroll {
   align-items: center;
   animation: fadeOut 3s ease 0.5s forwards;
 }
-
-.intro-logo {
+.intro .intro-logo {
   position: absolute;
   animation: fadeIn 3.5s ease forwards;
   max-width: 200px;
@@ -48,7 +48,7 @@ body.no-scroll {
   top: 50%;
   transform: translate(-50%, -50%) scale(1);
 }
-.intro-logo img {
+.intro .intro-logo img {
   max-width: 200px;
   width: 100%;
 }
@@ -156,12 +156,28 @@ body.no-scroll {
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-image: url("../images/bg/J_03795.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: top;
-  z-index: -1;
   pointer-events: none;
+  overflow: hidden;
+}
+.background-fixed .carousel .carousel-item {
+  transition: opacity 2s ease-in, visibility 1s ease-out;
+}
+.background-fixed .carousel .carousel-item img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+  width: 100vw;
+  height: 100vh;
+  animation: imgani 8s ease-in forwards;
+}
+@keyframes imgani {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.15);
+  }
 }
 
 .beforeRow {
@@ -259,6 +275,10 @@ body.no-scroll {
   top: 4%;
   width: 25%;
   margin: 0 0px 0px 16px;
+}
+.row-01 .textani-LT .anitlogo {
+  opacity: 0;
+  transform: translateX(-100%);
 }
 .row-01 .textani-LT-02 {
   left: 25%;
@@ -380,6 +400,12 @@ body.no-scroll {
   scrollbar-width: none;
   /* Firefox */
   -ms-overflow-style: none;
+  line-height: 1.5;
+  letter-spacing: 0.03em;
+  word-break: break-word;
+  /* 強制單詞內換行，避免文字溢出 */
+  white-space: normal;
+  text-align: justify;
   /* IE 10+ */
   cursor: ns-resize;
 }
@@ -415,6 +441,11 @@ body.no-scroll {
   scrollbar-width: none;
   /* Firefox */
   -ms-overflow-style: none;
+  line-height: 1.5;
+  letter-spacing: 0.03em;
+  word-break: break-word;
+  white-space: normal;
+  text-align: justify;
   /* IE 10+ */
   cursor: ns-resize;
 }
@@ -465,6 +496,7 @@ body.no-scroll {
   background-color: transparent;
   border-radius: 20px;
   transition: all 0.4s ease;
+  box-shadow: none;
 }
 .row-04 .horizontal-area .card .pic {
   width: 100%;
@@ -488,18 +520,25 @@ body.no-scroll {
   top: 20%;
   transform: translateX(-50%);
   transition: all 0.4s ease;
+  white-space: nowrap;
 }
 .row-04 .horizontal-area .card .content {
   left: 0%;
-  top: 66px;
+  top: 72px;
   position: absolute;
   width: 40%;
-  height: calc(100% - 66px);
+  height: 100%;
   padding: 32px;
   transition: all 0.4s ease 1s;
   opacity: 0;
   animation: contentani 1s ease-in forwards;
   color: #f0f0f0;
+  line-height: 1.5;
+  letter-spacing: 0.03em;
+  word-break: break-word;
+  /* 強制單詞內換行，避免文字溢出 */
+  white-space: normal;
+  text-align: justify;
 }
 @keyframes contentani {
   0% {
@@ -519,7 +558,7 @@ body.no-scroll {
   -o-object-fit: cover;
      object-fit: cover;
   position: absolute;
-  bottom: 20%;
+  bottom: 24%;
   left: 10%;
   border-radius: 8px;
 }
@@ -569,6 +608,9 @@ body.no-scroll {
 .row-04 .horizontal-area .card .close:hover {
   background-color: rgba(238, 29, 35, 0.8);
 }
+.row-04 .horizontal-area .card:hover {
+  box-shadow: 0px 0px 16px 2px rgba(110, 6, 6, 0.6);
+}
 .row-04 .horizontal-area .card:hover .pic {
   filter: brightness(0.6);
   transform: scale(1.1);
@@ -590,17 +632,20 @@ body.no-scroll {
   filter: brightness(1);
 }
 .row-04 .horizontal-area .card.cardopen .title {
-  top: 36px;
+  top: 60px;
   left: 30%;
 }
 .row-04 .horizontal-area .card.cardopen .content {
   left: 0%;
-  top: 90px;
+  top: 120px;
   position: absolute;
   width: 40%;
   height: 100%;
   padding: 32px;
   color: #f0f0f0;
+}
+.row-04 .horizontal-area .card.cardopen:hover {
+  box-shadow: none;
 }
 .row-04 .horizontal-area .card.cardopen:hover .pic {
   filter: brightness(1);
@@ -608,7 +653,7 @@ body.no-scroll {
 }
 .row-04 .horizontal-area .card.cardopen:hover .title {
   font-size: 36px;
-  top: 36px;
+  top: 60px;
 }
 .row-04 .horizontal-area .card.cardopen:hover .undertext {
   transform: translateY(0%);

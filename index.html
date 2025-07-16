@@ -16,6 +16,7 @@
     <div id="app">
       <!-- 開場動畫區塊 -->
       <div v-if="!introPlayed" class="intro" @animationend="onIntroEnd">
+        <!-- <img class="intro-bg" src="./images/bg/J_03795.jpg" alt=""> -->
         <div class="intro-logo">
           <img src="./images/logo/samphone-logo.png" alt="" />
         </div>
@@ -97,7 +98,26 @@
         </header>
 
         <section>
-          <div class="background-fixed"></div>
+          <div class="background-fixed">
+            <div
+              id="carouselExampleFade"
+              class="carousel slide carousel-fade"
+              data-bs-ride="carousel"
+              data-bs-interval="3000"
+            >
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <img src="./images/bg/J_03795.jpg" class="d-block w-100" alt="..." />
+                </div>
+                <div class="carousel-item">
+                  <img src="./images/bg/IMG_1907.jpg" class="d-block w-100" alt="..." />
+                </div>
+                <div class="carousel-item">
+                  <img src="./images/bg/IMG_1891.jpg" class="d-block w-100" alt="..." />
+                </div>
+              </div>
+            </div>
+          </div>
         </section>
         <div class="beforeRow"></div>
         <div class="bgText">
@@ -206,17 +226,19 @@
                 :class="{ cardopen: openedCard === index }"
                 @click="cardOpenToogle(index)"
               >
-              <img class="pic" :src="item.image" :alt="item.title" />
-              <div class="content-bg" v-if="openedCard === index">
-                
-              </div>
+                <img class="pic" :src="item.image" :alt="item.title" />
+                <div class="content-bg" v-if="openedCard === index"></div>
                 <div class="title">{{ item.title }}</div>
                 <div class="content" v-if="openedCard === index">
                   <p>{{ item.content }}</p>
-                  <img class="imagedetal" :src="item.imagedetal" alt="">
+                  <img class="imagedetal" :src="item.imagedetal" alt="" />
                 </div>
-                <div v-if="openedCard !== index" class="undertext open">click Open</div>
-                <div v-if="openedCard == index" class="undertext close">click Close</div>
+                <div v-if="openedCard !== index" class="undertext open">
+                  click Open
+                </div>
+                <div v-if="openedCard == index" class="undertext close">
+                  click Close
+                </div>
               </div>
             </div>
           </div>
