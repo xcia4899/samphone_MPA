@@ -89,8 +89,8 @@ body.no-scroll {
   height: 20px;
   display: block;
   box-sizing: border-box;
-  border-bottom: 2px solid #ffffff;
-  border-right: 2px solid #ffffff;
+  border-bottom: 2px solid #f0f0f0;
+  border-right: 2px solid #f0f0f0;
   position: absolute;
   right: -20px;
   bottom: -20px;
@@ -102,8 +102,8 @@ body.no-scroll {
   height: 20px;
   display: block;
   box-sizing: border-box;
-  border-top: 2px solid #ffffff;
-  border-left: 2px solid #ffffff;
+  border-top: 2px solid #f0f0f0;
+  border-left: 2px solid #f0f0f0;
   position: absolute;
   top: -20px;
   left: -20px;
@@ -178,7 +178,7 @@ body.no-scroll {
 }
 .my-navbar .my-catainer .my-offcanvas {
   margin: -32px -64px;
-  height: 100vh;
+  height: calc(var(--vh, 1vh) * 100);
   right: 0;
   background-color: #6e0606 !important;
   border: none;
@@ -221,7 +221,7 @@ body.no-scroll {
   top: 0px;
   left: 0;
   width: 100vw;
-  height: 100vh;
+  height: calc(var(--vh, 1vh) * 100);
   pointer-events: none;
   overflow: hidden;
 }
@@ -234,7 +234,7 @@ body.no-scroll {
   -o-object-position: center;
      object-position: center;
   width: 100vw;
-  height: 100vh;
+  height: calc(var(--vh, 1vh) * 100);
   animation: imgani 8s ease-in forwards;
 }
 @keyframes imgani {
@@ -261,7 +261,7 @@ body.no-scroll {
   position: fixed;
   left: 0%;
   bottom: 0;
-  height: 100vh;
+  height: calc(var(--vh, 1vh) * 100);
   z-index: -111;
   font-size: 72px;
   font-weight: 900;
@@ -273,7 +273,7 @@ body.no-scroll {
 }
 
 .row-01 {
-  height: 100vh;
+  height: calc(var(--vh, 1vh) * 100);
   color: #f0f0f0;
   background-color: #160300;
 }
@@ -293,7 +293,7 @@ body.no-scroll {
   grid-template-rows: repeat(3, 1fr);
   /* 3列 */
   width: 100vw;
-  height: 100vh;
+  height: calc(var(--vh, 1vh) * 100);
   box-sizing: border-box;
 }
 .row-01 .block {
@@ -326,7 +326,7 @@ body.no-scroll {
   transition: all 0.3s ease;
 }
 .row-01 .ani:hover {
-  color: #ee1d23;
+  color: #ff8e0c;
   font-weight: bolder;
 }
 .row-01 .textani-LB {
@@ -334,7 +334,7 @@ body.no-scroll {
   bottom: 0;
   width: 50%;
   margin: 0 0px 16px 16px;
-  font-size: 10vw;
+  font-size: clamp(2rem, 8vw, 6rem);
 }
 .row-01 .textani-LT {
   left: 0;
@@ -352,7 +352,7 @@ body.no-scroll {
   width: 25%;
   height: 80px;
   margin: 0 0px 0px 16px;
-  font-size: 2vw;
+  font-size: clamp(2rem, 2vw, 6rem);
   justify-content: center;
   align-items: end;
 }
@@ -369,7 +369,6 @@ body.no-scroll {
   bottom: 4%;
   margin: 0 16px 16px 0px;
   width: 33.3333333333%;
-  font-size: 4vw;
   justify-content: flex-end;
 }
 .row-01 .textani-RM {
@@ -379,17 +378,25 @@ body.no-scroll {
   height: calc(40% - 60px);
   overflow: visible;
 }
+.row-01 .aniwe {
+  font-size: clamp(2rem, 8vw, 8rem);
+}
 .row-01 .aniare {
+  font-size: clamp(2rem, 8vw, 8rem);
   margin-left: 24px;
 }
 .row-01 .anitech {
+  font-size: clamp(2rem, 6vw, 7rem);
   position: absolute;
   left: 0;
+}
+.row-01 .anitpro {
+  font-size: clamp(2rem, 4vw, 4rem);
 }
 .row-01 .aniImp {
   position: absolute;
   left: 0;
-  font-size: 6rem;
+  font-size: clamp(2rem, 5vw, 6rem);
 }
 .row-01 .anitlogo {
   opacity: 0;
@@ -399,6 +406,7 @@ body.no-scroll {
 }
 .row-01 .anitsol {
   opacity: 0;
+  font-size: clamp(12px, 2vw, 6rem);
 }
 .row-01 .circle {
   position: absolute;
@@ -434,7 +442,7 @@ body.no-scroll {
 
 .img-control {
   width: 100%;
-  height: 100vh;
+  height: calc(var(--vh, 1vh) * 100);
   overflow: hidden;
   display: flex;
   justify-content: center;
@@ -453,7 +461,7 @@ body.no-scroll {
 
 .row-02 {
   color: #f0f0f0;
-  height: 100vh;
+  height: calc(var(--vh, 1vh) * 100);
   display: flex;
   justify-content: flex-end;
 }
@@ -485,7 +493,7 @@ body.no-scroll {
   margin-top: 64px;
 }
 .row-02 .text-area .title:hover {
-  color: #ee1d23;
+  color: #ff8e0c;
 }
 .row-02 .text-area .text-content {
   font-size: 18px;
@@ -494,7 +502,7 @@ body.no-scroll {
 
 .row-03 {
   color: #f0f0f0;
-  height: 100vh;
+  height: calc(var(--vh, 1vh) * 100);
   display: flex;
   justify-content: flex-end;
 }
@@ -526,7 +534,7 @@ body.no-scroll {
   margin-top: 64px;
 }
 .row-03 .text-area .title:hover {
-  color: #ee1d23;
+  color: #ff8e0c;
 }
 .row-03 .text-area .text-content {
   font-size: 18px;
@@ -534,7 +542,7 @@ body.no-scroll {
 }
 
 .row-04 {
-  height: 100vh;
+  height: calc(var(--vh, 1vh) * 100);
   padding: 16px;
 }
 .row-04 .hiddenarea {
@@ -544,7 +552,6 @@ body.no-scroll {
 }
 .row-04 .horizontal-area {
   width: 100%;
-  max-width: 5000px;
   min-width: 4000px;
   height: 100%;
   transform: translate(100vw, 0);
@@ -553,8 +560,8 @@ body.no-scroll {
   gap: 60px;
 }
 .row-04 .horizontal-area .card {
-  height: 500px;
   width: 300px;
+  height: 60%;
   margin: 0 60px;
   padding: 0;
   cursor: pointer;
@@ -697,8 +704,15 @@ body.no-scroll {
   margin: 0 0px;
   border-radius: 8px;
 }
-.row-04 .horizontal-area .card.cardopen img {
+.row-04 .horizontal-area .card.cardopen .pic {
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.row-04 .horizontal-area .card.cardopen .pic img {
   filter: brightness(1);
+  border-radius: 8px;
 }
 .row-04 .horizontal-area .card.cardopen .title {
   top: 60px;
@@ -729,7 +743,7 @@ body.no-scroll {
 }
 
 .row-05 {
-  height: 100vh;
+  height: calc(var(--vh, 1vh) * 100);
   white-space: normal;
   display: flex;
   justify-content: space-around;
@@ -759,12 +773,15 @@ body.no-scroll {
   justify-content: center;
   bottom: 0;
   font-size: 20px;
-  background-color: rgba(22, 3, 0, 0.7);
+  background-color: rgba(22, 3, 0, 0.8);
   -webkit-backdrop-filter: blur(2px);
           backdrop-filter: blur(2px);
   padding: 8px;
   border-radius: 20px;
   text-align: center;
+}
+.row-05 .card .title:hover {
+  color: #ff8e0c;
 }
 .row-05 .card:hover {
   box-shadow: 0px 0px 0px 8px #f0f0f0;
@@ -791,6 +808,9 @@ body.no-scroll {
   color: #f0f0f0;
   text-decoration: none;
 }
+.site-footer a:hover {
+  color: #ff8e0c;
+}
 .site-footer h3 {
   font-size: 24px;
 }
@@ -806,25 +826,15 @@ body.no-scroll {
   justify-content: space-evenly;
   gap: 24px;
 }
-.site-footer .footer-container .footer-content {
-  flex: 2;
-}
-.site-footer .footer-container .footer-content p {
-  padding: 4px 0px;
-}
 .site-footer .footer-container .footer-section {
   flex: 1;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  justify-content: flex-start;
+  gap: 8px;
 }
-.site-footer .footer-container .footer-section ul {
-  padding: 0;
-}
-.site-footer .footer-container .footer-section li {
-  list-style: none;
-  margin: 0;
-  padding: 4px 0px;
+.site-footer .footer-container .footer-content {
+  flex: 2;
 }
 .site-footer .footer-bottom {
   width: 100%;

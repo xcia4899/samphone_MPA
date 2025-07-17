@@ -240,12 +240,12 @@
               >
                 <div class="pic">
                   <img :src="item.image" :alt="item.title" />
-                   <div v-if="openedCard !== index" class="undertext open">
-                  click Open
-                </div>
-                <div v-if="openedCard == index" class="undertext close">
-                  click Close
-                </div>
+                  <div v-if="openedCard !== index" class="undertext open">
+                    click Open
+                  </div>
+                  <div v-if="openedCard == index" class="undertext close">
+                    click Close
+                  </div>
                 </div>
                 <div class="content-bg" v-if="openedCard === index"></div>
                 <div class="title">{{ item.title }}</div>
@@ -253,21 +253,20 @@
                   <p>{{ item.content }}</p>
                   <img class="imagedetal" :src="item.imagedetal" alt="" />
                 </div>
-               
               </div>
             </div>
           </div>
         </section>
         <section class="row-05">
-          <div class="card ">
+          <div class="card">
             <img src="./images/row5/IMG_0640.jpg" alt="" />
-            <div class="title">中音薩克斯風 <br>(Alto Saxophone)</div>
+            <div class="title">中音薩克斯風 <br />(Alto Saxophone)</div>
           </div>
-          <div class="card ">
+          <div class="card">
             <img src="./images/row5/IMG_0639.jpg" alt="" />
-            <div class="title">次中音薩克斯風 <br>(Tenor Saxophone)</div>
+            <div class="title">次中音薩克斯風 <br />(Tenor Saxophone)</div>
           </div>
-          <div class="card ">
+          <div class="card">
             <img src="./images/bg/IMG_1907.jpg" alt="" />
             <div class="title">薩克斯風配件</div>
           </div>
@@ -279,46 +278,30 @@
           </div>
           <hr />
           <div class="footer-container">
-            <div class="footer-content">
+            <div class="footer-section footer-content">
               <p>地址：台中市太平區</p>
               <p>電話：04-1234-5678</p>
               <p>Email：service@shengfengmusic.com</p>
               <p>營業時間：週一至週五 09:00–18:00</p>
             </div>
-            <div class="footer-section links">
-              <ul>
-                <li><a href="/about">關於勝風</a></li>
-                <li><a href="/products">產品介紹</a></li>
-                <li><a href="/events">品牌活動</a></li>
-                <li><a href="/support">技術支援</a></li>
-                <li><a href="/contact">聯絡我們</a></li>
-              </ul>
+            <div class="footer-section">
+              <a href="/about">關於勝風</a>
+              <a href="/products">產品介紹</a>
+              <a href="/events">品牌活動</a>
+              <a href="/support">技術支援</a>
+              <a href="/contact">聯絡我們</a>
             </div>
 
-            <div class="footer-section social">
-              <ul class="social-links">
-                <li>
-                  <a
-                    href="https://www.facebook.com/shengfengmusic"
-                    target="_blank"
-                    >Facebook</a
-                  >
-                </li>
-                <li>
-                  <a
-                    href="https://www.instagram.com/shengfengmusic"
-                    target="_blank"
-                    >Instagram</a
-                  >
-                </li>
-                <li>
-                  <a
-                    href="https://www.youtube.com/@shengfengmusic"
-                    target="_blank"
-                    >YouTube</a
-                  >
-                </li>
-              </ul>
+            <div class="footer-section">
+              <a href="https://www.facebook.com/shengfengmusic" target="_blank"
+                >Facebook</a
+              >
+              <a href="https://www.instagram.com/shengfengmusic" target="_blank"
+                >Instagram</a
+              >
+              <a href="https://www.youtube.com/@shengfengmusic" target="_blank"
+                >YouTube</a
+              >
             </div>
             <div class="footer-section">
               <a href="">服務條款</a><a href="">隱私政策</a

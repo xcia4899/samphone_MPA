@@ -1,8 +1,8 @@
 $color-red: #6e0606;
 $color-darkred: #160300;
 $color-lightkred: #ee1d23;
-$color-redshow: darken(#160300, 20%);
-$color-redgradient: linear-gradient(to right, #200400, #160300);
+$color-gold: #ff8e0c;
+
 $color-white: #f0f0f0;
 $color-black: #0f0f0f;
 
@@ -120,8 +120,8 @@ body.no-scroll {
     height: 20px;
     display: block;
     box-sizing: border-box;
-    border-bottom: 2px solid #ffffff;
-    border-right: 2px solid #ffffff;
+    border-bottom: 2px solid $color-white;
+    border-right: 2px solid $color-white;
     position: absolute;
     right: -20px;
     bottom: -20px;
@@ -134,8 +134,8 @@ body.no-scroll {
     height: 20px;
     display: block;
     box-sizing: border-box;
-    border-top: 2px solid #ffffff;
-    border-left: 2px solid #ffffff;
+    border-top: 2px solid $color-white;
+    border-left: 2px solid $color-white;
     position: absolute;
     top: -20px;
     left: -20px;
@@ -228,7 +228,7 @@ body.no-scroll {
 
     .my-offcanvas {
       margin: -32px -64px;
-      height: 100vh;
+      height: calc(var(--vh, 1vh) * 100); // 正確使用自訂 vh
       right: 0;
       background-color: $color-red !important;
       border: none;
@@ -292,7 +292,7 @@ body.no-scroll {
   top: 0px;
   left: 0;
   width: 100vw;
-  height: 100vh;
+  height: calc(var(--vh, 1vh) * 100); // 正確使用自訂 vh
 
   pointer-events: none;
   overflow: hidden;
@@ -305,7 +305,7 @@ body.no-scroll {
         object-fit: cover;
         object-position: center;
         width: 100vw;
-        height: 100vh;
+        height: calc(var(--vh, 1vh) * 100); // 正確使用自訂 vh
         animation: imgani 8s ease-in forwards;
       }
     }
@@ -341,7 +341,7 @@ body.no-scroll {
   left: 0%;
   bottom: 0;
   // width: 100%;
-  height: 100vh;
+  height: calc(var(--vh, 1vh) * 100); // 正確使用自訂 vh
   z-index: -111;
 
   font-size: 72px;
@@ -367,7 +367,7 @@ body.no-scroll {
 
 
 .row-01 {
-  height: 100vh;
+  height: calc(var(--vh, 1vh) * 100); // 正確使用自訂 vh
   color: $color-white;
   background-color: $color-darkred;
 
@@ -390,7 +390,7 @@ body.no-scroll {
     grid-template-rows: repeat(3, 1fr);
     /* 3列 */
     width: 100vw;
-    height: 100vh;
+    height: calc(var(--vh, 1vh) * 100); // 正確使用自訂 vh
     // gap: 10px;
     // padding: 10px;
     box-sizing: border-box;
@@ -434,8 +434,9 @@ body.no-scroll {
     font-weight: bold;
     transition: all 0.3s ease;
 
+    // font-size: clamp(1rem, 2vw, 4rem);
     &:hover {
-      color: $color-lightkred;
+      color: $color-gold;
       font-weight: bolder;
     }
   }
@@ -445,7 +446,7 @@ body.no-scroll {
     bottom: 0;
     width: calc(100% / 2);
     margin: 0 0px 16px 16px;
-    font-size: 10vw;
+    font-size: clamp(2rem, 8vw, 6rem);
   }
 
   .textani-LT {
@@ -466,7 +467,7 @@ body.no-scroll {
     width: calc(100% / 4);
     height: 80px;
     margin: 0 0px 0px 16px;
-    font-size: 2vw;
+    font-size: clamp(2rem, 2vw, 6rem);
     justify-content: center;
     align-items: end;
     // padding: 8px;
@@ -486,7 +487,7 @@ body.no-scroll {
     bottom: 4%;
     margin: 0 16px 16px 0px;
     width: calc(100% / 3);
-    font-size: 4vw;
+
     justify-content: flex-end;
   }
 
@@ -499,19 +500,29 @@ body.no-scroll {
     overflow: visible;
   }
 
+  .aniwe {
+    font-size: clamp(2rem, 8vw, 8rem);
+  }
+
   .aniare {
+    font-size: clamp(2rem, 8vw, 8rem);
     margin-left: 24px;
   }
 
   .anitech {
+    font-size: clamp(2rem, 6vw, 7rem);
     position: absolute;
     left: 0;
+  }
+
+  .anitpro {
+    font-size: clamp(2rem, 4vw, 4rem);
   }
 
   .aniImp {
     position: absolute;
     left: 0;
-    font-size: 6rem;
+    font-size: clamp(2rem, 5vw, 6rem);
   }
 
   .anitlogo {
@@ -523,6 +534,7 @@ body.no-scroll {
 
   .anitsol {
     opacity: 0;
+    font-size: clamp(12px, 2vw, 6rem);
   }
 
   .circle {
@@ -558,7 +570,7 @@ body.no-scroll {
 
 .img-control {
   width: 100%;
-  height: 100vh;
+  height: calc(var(--vh, 1vh) * 100); // 正確使用自訂 vh
   overflow: hidden;
   display: flex;
   justify-content: center;
@@ -577,7 +589,7 @@ body.no-scroll {
 
 .row-02 {
   color: $color-white;
-  height: 100vh;
+  height: calc(var(--vh, 1vh) * 100); // 正確使用自訂 vh
   display: flex;
   justify-content: flex-end;
   // flex-direction: column-reverse;
@@ -608,7 +620,7 @@ body.no-scroll {
       margin-top: 64px;
 
       &:hover {
-        color: $color-lightkred;
+        color: $color-gold;
 
       }
     }
@@ -625,7 +637,7 @@ body.no-scroll {
 .row-03 {
 
   color: $color-white;
-  height: 100vh;
+  height: calc(var(--vh, 1vh) * 100); // 正確使用自訂 vh
   display: flex;
   justify-content: flex-end;
 
@@ -655,7 +667,7 @@ body.no-scroll {
       margin-top: 64px;
 
       &:hover {
-        color: $color-lightkred;
+        color: $color-gold;
 
       }
     }
@@ -674,7 +686,7 @@ body.no-scroll {
 
 
   // border: 1px solid white;
-  height: 100vh;
+  height: calc(var(--vh, 1vh) * 100); // 正確使用自訂 vh
   padding: 16px;
 
 
@@ -688,7 +700,7 @@ body.no-scroll {
   .horizontal-area {
 
     width: 100%;
-    max-width: 5000px;
+    // max-width: 5000px;
     min-width: 4000px;
     height: 100%;
     transform: translate(100vw, 0);
@@ -698,8 +710,10 @@ body.no-scroll {
     gap: 60px;
 
     .card {
-      height: 500px;
+      // height: 500px;
       width: 300px;
+      height: 60%;
+      // width: 100%;
       margin: 0 60px;
       padding: 0;
       // overflow: hidden;
@@ -745,6 +759,7 @@ body.no-scroll {
         transform: translateX(-50%); // 用你覆蓋的版本
         transition: all 0.4s ease;
         white-space: nowrap;
+
       }
 
       .content {
@@ -873,8 +888,16 @@ body.no-scroll {
       margin: 0 0px;
       border-radius: 8px;
 
-      img {
-        filter: brightness(1);
+      .pic {
+        width: 100%;
+        height: 100%;
+         border-radius: 8px;
+        overflow: hidden;
+
+        img {
+         filter: brightness(1);
+        border-radius: 8px;
+        }
       }
 
       .title {
@@ -915,7 +938,7 @@ body.no-scroll {
 }
 
 .row-05 {
-  height: 100vh;
+  height: calc(var(--vh, 1vh) * 100); // 正確使用自訂 vh
   white-space: normal;
   display: flex;
   justify-content: space-around;
@@ -950,11 +973,16 @@ body.no-scroll {
       justify-content: center;
       bottom: 0;
       font-size: 20px;
-      background-color: rgba($color-darkred, 0.7);
+      background-color: rgba($color-darkred, 0.8);
       backdrop-filter: blur(2px);
       padding: 8px;
       border-radius: 20px;
       text-align: center;
+
+      &:hover {
+        color: $color-gold;
+
+      }
     }
 
     &:hover {
@@ -990,6 +1018,10 @@ body.no-scroll {
   a {
     color: $color-white;
     text-decoration: none;
+
+    &:hover {
+      color: $color-gold;
+    }
   }
 
   h3 {
@@ -1012,32 +1044,18 @@ body.no-scroll {
 
     gap: 24px;
 
-    .footer-content {
-      // min-height: 400px;
-      flex: 2;
-
-      p {
-        padding: 4px 0px;
-      }
-    }
-
     .footer-section {
       flex: 1;
       display: flex;
       flex-direction: column;
-      align-items: center;
-
+      justify-content: flex-start;
+      // align-items: center;
+      gap: 8px;
       // width: 200px;
-      ul {
-        padding: 0;
-      }
+    }
 
-      li {
-        list-style: none;
-
-        margin: 0;
-        padding: 4px 0px;
-      }
+    .footer-content {
+      flex: 2;
     }
   }
 
