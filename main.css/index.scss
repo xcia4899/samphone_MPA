@@ -29,6 +29,15 @@ body {
   // color: $color-white;
 }
 
+@mixin textset {
+  line-height: 1.5;
+  letter-spacing: 0.03em;
+  word-break: break-word;
+  white-space: normal;
+  overflow-wrap: break-word;
+  text-align: justify;
+}
+
 ///--startani------------------------------
 body.no-scroll {
   overflow: hidden;
@@ -102,6 +111,90 @@ body.no-scroll {
     opacity: 0;
   }
 }
+
+
+.cardani {
+  &::after {
+    content: "";
+    width: 20px;
+    height: 20px;
+    display: block;
+    box-sizing: border-box;
+    border-bottom: 2px solid #ffffff;
+    border-right: 2px solid #ffffff;
+    position: absolute;
+    right: -20px;
+    bottom: -20px;
+    transition: all .3s ease;
+  }
+
+  &::before {
+    content: "";
+    width: 20px;
+    height: 20px;
+    display: block;
+    box-sizing: border-box;
+    border-top: 2px solid #ffffff;
+    border-left: 2px solid #ffffff;
+    position: absolute;
+    top: -20px;
+    left: -20px;
+    transition: all .3s linear;
+  }
+
+  &::before,
+  &::after {
+    // border-radius: 20px;
+    animation: cardborderauto 2s ease-out infinite;
+  }
+
+  &:hover::before,
+  &:hover::after {
+    // border-radius: 20px;
+    animation: cardborderani 1s ease-out forwards;
+  }
+}
+
+@keyframes cardborderauto {
+  0% {
+    width: 20px;
+    height: 20px;
+    border-width: 4px;
+  }
+
+  50% {
+    width: 12px;
+    height: 12px;
+  }
+
+  100% {
+    width: 20px;
+    height: 20px;
+    border-width: 4px;
+  }
+}
+
+@keyframes cardborderani {
+  0% {
+
+    width: 20px;
+    height: 20px;
+    border-radius: 0;
+  }
+
+  70% {
+    width: calc(100% + 40px);
+    height: calc(100% + 40px);
+    border-radius: 0;
+  }
+
+  100% {
+    width: calc(100% + 40px);
+    height: calc(100% + 40px);
+    border-radius: 20px;
+  }
+}
+
 
 //---------------------------------------------------
 .my-navbar {
@@ -499,12 +592,7 @@ body.no-scroll {
     scrollbar-width: none;
     /* Firefox */
     -ms-overflow-style: none;
-    line-height: 1.5;
-    letter-spacing: 0.03em;
-    word-break: break-word;
-    /* 強制單詞內換行，避免文字溢出 */
-    white-space: normal;
-    text-align: justify;
+    @include textset;
 
     /* IE 10+ */
     &::-webkit-scrollbar {
@@ -551,12 +639,7 @@ body.no-scroll {
     scrollbar-width: none;
     /* Firefox */
     -ms-overflow-style: none;
-    line-height: 1.5;
-    letter-spacing: 0.03em;
-    word-break: break-word;
-    white-space: normal;
-    // overflow-wrap: break-word;
-    text-align: justify;
+    @include textset;
 
     /* IE 10+ */
     &::-webkit-scrollbar {
@@ -603,6 +686,7 @@ body.no-scroll {
   }
 
   .horizontal-area {
+
     width: 100%;
     max-width: 5000px;
     min-width: 4000px;
@@ -618,23 +702,32 @@ body.no-scroll {
       width: 300px;
       margin: 0 60px;
       padding: 0;
-      overflow: hidden;
+      // overflow: hidden;
       cursor: pointer;
       color: $color-white;
       background-color: transparent;
       border-radius: 20px;
       transition: all 0.4s ease;
-      box-shadow: none;
+
+      box-shadow: 0px 0px 0px 0px rgba($color-white, 1);
 
       .pic {
         width: 100%;
         height: 100%;
-        object-fit: cover;
-        object-position: center center;
-        transition: all 0.4s ease;
-        filter: brightness(0.4);
-        transform: scale(1);
+        border-radius: 20px;
+        overflow: hidden;
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          object-position: center center;
+          transition: all 0.4s ease;
+          filter: brightness(0.4);
+          transform: scale(1);
+        }
       }
+
 
       .title {
         font-size: 36px;
@@ -659,7 +752,7 @@ body.no-scroll {
         top: 72px;
         position: absolute;
         width: 40%;
-        height: calc(100%);
+
         padding: 32px;
         transition: all 0.4s ease 1s;
         opacity: 0;
@@ -694,9 +787,10 @@ body.no-scroll {
 
       .imagedetal {
         width: 80%;
+        aspect-ratio: 1/1;
         object-fit: cover;
         position: absolute;
-        bottom: 24%;
+        bottom: 32px;
         left: 10%;
         border-radius: 8px;
       }
@@ -755,9 +849,9 @@ body.no-scroll {
       }
 
       &:hover {
-        box-shadow: 0px 0px 16px 2px rgba($color-red, 0.6);
+        // box-shadow: 0px 0px 0px 8px rgba($color-white, 1);
 
-        .pic {
+        img {
           filter: brightness(0.6);
           transform: scale(1.1);
         }
@@ -779,7 +873,7 @@ body.no-scroll {
       margin: 0 0px;
       border-radius: 8px;
 
-      .pic {
+      img {
         filter: brightness(1);
       }
 
@@ -793,7 +887,7 @@ body.no-scroll {
         top: 120px;
         position: absolute;
         width: 40%;
-        height: 100%;
+        height: calc(100% - 120px);
         padding: 32px;
         color: $color-white;
 
@@ -802,7 +896,7 @@ body.no-scroll {
       &:hover {
         box-shadow: none;
 
-        .pic {
+        img {
           filter: brightness(1);
           transform: scale(1);
         }
@@ -821,7 +915,59 @@ body.no-scroll {
 }
 
 .row-05 {
-  height: 600px;
+  height: 100vh;
+  white-space: normal;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+
+
+  .card {
+    // height: 70%;
+    width: 25%;
+    padding: 0;
+    aspect-ratio: 3/5;
+    cursor: pointer;
+    color: $color-white;
+    background-color: transparent;
+    border-radius: 20px;
+    transition: all 0.6s ease-out;
+    // border: 4px solid #dadada;
+
+
+    img {
+      border-radius: 20px;
+      object-fit: cover;
+      height: 100%;
+      filter: brightness(0.6);
+    }
+
+    .title {
+      position: absolute;
+      display: flex;
+      width: 100%;
+      justify-content: center;
+      bottom: 0;
+      font-size: 20px;
+      background-color: rgba($color-darkred, 0.7);
+      backdrop-filter: blur(2px);
+      padding: 8px;
+      border-radius: 20px;
+      text-align: center;
+    }
+
+    &:hover {
+      box-shadow: 0px 0px 0px 8px rgba($color-white, 1);
+
+      img {
+
+        filter: brightness(0.8);
+      }
+    }
+
+
+  }
 }
 
 //-------------------------------
