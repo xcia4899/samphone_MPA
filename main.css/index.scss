@@ -567,7 +567,6 @@ body.no-scroll {
   }
 }
 
-
 .img-control {
   width: 100%;
   height: calc(var(--vh, 1vh) * 100); // 正確使用自訂 vh
@@ -587,53 +586,58 @@ body.no-scroll {
   }
 }
 
-.row-02 {
-  color: $color-white;
-  height: calc(var(--vh, 1vh) * 100); // 正確使用自訂 vh
-  display: flex;
-  justify-content: flex-end;
-  // flex-direction: column-reverse;
 
-  .text-area {
-    // position: absolute;
-    width: 0%;
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    overflow-y: auto;
-    scrollbar-width: none;
-    /* Firefox */
-    -ms-overflow-style: none;
-    @include textset;
 
-    /* IE 10+ */
-    &::-webkit-scrollbar {
-      display: none;
-      /* Chrome, Safari */
-    }
+// .row-02 {
+//   color: $color-white;
+//   height: calc(var(--vh, 1vh) * 100); // 正確使用自訂 vh
+//   display: flex;
+//   justify-content: flex-end;
+//   // flex-direction: column-reverse;
 
-    cursor: ns-resize;
+//   .text-area {
+//     // position: absolute;
+//     width: 100%;
+//     display: flex;
+//     flex-direction: column;
+//     gap: 16px;
+//     overflow-y: auto;
+//     scrollbar-width: none;
+//     /* Firefox */
+//     -ms-overflow-style: none;
+//     @include textset;
 
-    .title {
-      font-size: 30px;
-      opacity: 0;
-      margin-top: 64px;
+//     /* IE 10+ */
+//     &::-webkit-scrollbar {
+//       display: none;
+//       /* Chrome, Safari */
+//     }
 
-      &:hover {
-        color: $color-gold;
+//     cursor: ns-resize;
 
-      }
-    }
+//     .title {
+//       font-size: 30px;
+//       opacity: 0;
+//       margin-top: 64px;
 
-    .text-content {
-      font-size: 18px;
-      opacity: 0;
+//       &:hover {
+//         color: $color-gold;
 
-    }
-  }
+//       }
+//     }
 
-}
+//     .text-content {
+//       font-size: 18px;
+//       opacity: 0;
 
+//     }
+//   }
+
+// }
+
+
+
+.row-02,
 .row-03 {
 
   color: $color-white;
@@ -891,12 +895,12 @@ body.no-scroll {
       .pic {
         width: 100%;
         height: 100%;
-         border-radius: 8px;
+        border-radius: 8px;
         overflow: hidden;
 
         img {
-         filter: brightness(1);
-        border-radius: 8px;
+          filter: brightness(1);
+          border-radius: 8px;
         }
       }
 
@@ -942,6 +946,7 @@ body.no-scroll {
   white-space: normal;
   display: flex;
   justify-content: space-around;
+  align-content: space-evenly;
   align-items: center;
 
 
@@ -949,6 +954,7 @@ body.no-scroll {
   .card {
     // height: 70%;
     width: 25%;
+
     padding: 0;
     aspect-ratio: 3/5;
     cursor: pointer;
@@ -997,6 +1003,280 @@ body.no-scroll {
 
   }
 }
+
+@media screen and (max-width:670px) {
+  .row-01 {
+    .aniarea {
+      height: 100px;
+
+    }
+
+    .textani-LB {
+      left: 0;
+      bottom: 6%;
+      height: 100px;
+      width: calc(100% / 2);
+      margin: 0 0px 8px 8px;
+      font-size: clamp(2rem, 8vw, 6rem);
+    }
+
+    .textani-LT {
+      top: 0%;
+      height: 120px;
+      width: calc(100% / 3);
+      margin: 0 0px 0px 8px;
+    }
+
+    .textani-LT-02 {
+      left: 0%;
+      top: 12%;
+      width: calc(100% / 3);
+      height: 80px;
+      margin: 0 0px 0px 16px;
+      font-size: clamp(2rem, 2vw, 6rem);
+      justify-content: flex-start;
+    }
+
+    .textani-RT {
+      right: 0;
+      top: 0%;
+      height: 120px;
+      width: calc(100% / 3);
+      margin: 0 8px 0px 0px;
+      justify-content: flex-end;
+    }
+
+    .textani-RB {
+      height: 100px;
+      right: 0;
+      bottom: 4%;
+      margin: 0 8px 16px 0px;
+      width: calc(100% / 2);
+
+      justify-content: flex-end;
+    }
+
+    .textani-RM {
+      // border: 1px solid;
+      right: calc(12% + 50px);
+      bottom: calc(12% + 70px);
+      width: calc(100% / 4);
+      height: calc(100% / 2.5 - 60px);
+      overflow: visible;
+    }
+
+    .aniwe {
+      font-size: clamp(4rem, 8vw, 8rem);
+      height: 80px;
+    }
+
+    .aniare {
+      font-size: clamp(4rem, 8vw, 8rem);
+      margin-left: 24px;
+      height: 80px;
+    }
+
+    .anitech {
+      font-size: clamp(3rem, 6vw, 7rem);
+      position: absolute;
+      left: 0;
+    }
+
+    .anitpro {
+      font-size: clamp(1.5rem, 2vw, 4rem);
+    }
+
+    .aniImp {
+      font-size: clamp(1.6rem, 5vw, 6rem);
+    }
+
+    .anitlogo {
+      width: 100%;
+    }
+
+    .anitsol {
+      opacity: 0;
+      font-size: clamp(12px, 2vw, 6rem);
+    }
+
+    .circle {
+      clip-path: circle(40% at 50% 50%); // 圓形遮罩
+
+      &:hover {
+        clip-path: circle(50% at 50% 50%); // 圓形遮罩
+      }
+    }
+  }
+
+  .img-control {
+    width: 100%;
+
+    height: calc(var(--vh, 1vh) * 100); // 正確使用自訂 vh
+
+  }
+
+  .row-02,
+  .row-03 {
+    height: calc(var(--vh, 1vh) * 100); // 正確使用自訂 vh
+    height: 100vh;
+    flex-direction: column-reverse;
+
+    .text-area {
+      width: 0%;
+      height: 0%;
+      padding: 0px 32px;
+      margin-bottom: 64px;
+
+      .title {
+        margin: 0;
+      }
+    }
+  }
+
+  .row-04 {
+    .horizontal-area {
+      .card.cardopen {
+        height: 80vh;
+        width: 80vw;
+        margin: 0 0px;
+        border-radius: 8px;
+
+        .pic {
+          img {
+            filter: brightness(1);
+            border-radius: 8px;
+          }
+        }
+
+        .title {
+          top: 62%;
+          left: 25%;
+        }
+
+        .content-bg {
+          position: absolute;
+          left: 0%;
+          top: 60%;
+          width: 100%;
+          height: 40%;
+          border-radius: 0 0 8px 8px;
+        }
+
+        .content {
+          // position: absolute;
+          left: 50%;
+          top: 62%;
+          width: 50%;
+          height: 40%;
+          font-size: 16px;
+          padding: 8px;
+
+          .imagedetal {
+            width: 80%;
+            left: -90%;
+          }
+        }
+
+        &:hover {
+
+          .title {
+            top: 62%;
+            left: 25%;
+          }
+        }
+      }
+    }
+  }
+
+  .row-05 {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+
+
+    .card {
+      // height: 70%;
+      width: 25%;
+      min-width: 40vw;
+    }
+  }
+
+  .site-footer {
+    background-color: $color-red;
+    padding: 32px 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+
+    img {
+      max-width: 300px;
+    }
+
+    p {
+      color: $color-white;
+      margin: 0;
+    }
+
+    a {
+      color: $color-white;
+      text-decoration: none;
+
+      &:hover {
+        color: $color-gold;
+      }
+    }
+
+    h3 {
+      font-size: 24px;
+    }
+
+    hr {
+      margin: 8px 0;
+    }
+
+    .footer-top {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .footer-container {
+      display: flex;
+      justify-content: space-evenly;
+      flex-direction: column;
+      align-items: center;
+      gap: 24px;
+
+      .footer-section {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+       
+        align-items: center;
+        gap: 8px;
+        // width: 200px;
+      }
+
+      .footer-content {
+        flex: 2;
+      }
+    }
+
+    .footer-bottom {
+      width: 100%;
+      // text-align: right;
+
+      p {
+        font-size: 14px;
+
+      }
+    }
+  }
+}
+
+
 
 //-------------------------------
 .site-footer {

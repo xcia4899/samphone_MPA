@@ -64,7 +64,7 @@ export const indexdrop = {
   },
   methods: {
     cardOpenToogle(key) {
-      console.log(key + "-111111");
+      // console.log(key + "-111111");
       if (this.openedCard === key) {
         this.openedCard = null;
       } else {
@@ -87,7 +87,7 @@ export const indexdrop = {
 
           setTimeout(() => {
             ScrollTrigger.refresh();
-             this.handleResize()
+            this.handleResize()
           }, 100); // 給點緩衝時間確保 DOM 完整
         });
 
@@ -95,211 +95,421 @@ export const indexdrop = {
     },
     // row 固定動畫
     rowSetAni() {
-      const rows = [
-        {
-          selector: ".background-fixed",
-          steps: [
-            {
-              animation: { top: 300 },
-              scroll: { start: "top top", end: "+=1000", },
-            },
-          ],
-        },
-        {
-          selector: ".row-01",
-          steps: [
-            {
-              animation: {},
-              scroll: { start: "top top", end: "+=6400", pin: true },
-              // markers: true,
-            },
-          ],
-        },
-        {
-          selector: ".row-01 .bg-layer",
-          steps: [
-            {
-              animation: { opacity: 1 },
-              scroll: { start: "top top", end: "+=500" },
-            },
+      let rows = [];
+      if (window.innerWidth <= 670) {
+        rows = [
+          {
+            selector: ".background-fixed",
+            steps: [
+              {
+                animation: { top: 300 },
+                scroll: { start: "top top", end: "+=1000", },
+              },
+            ],
+          },
+          {
+            selector: ".row-01",
+            steps: [
+              {
+                animation: {},
+                scroll: { start: "top top", end: "+=6400", pin: true },
+                // markers: true,
+              },
+            ],
+          },
+          {
+            selector: ".row-01 .bg-layer",
+            steps: [
+              {
+                animation: { opacity: 1 },
+                scroll: { start: "top top", end: "+=500" },
+              },
 
-          ],
-        },
-        {
-          selector: ".row-02 ",
-          steps: [
-            {
-              animation: {},
-              scroll: { start: "top top", end: "+=4000", pin: true },
-            },
-          ],
-        },
-        {
-          selector: ".row-02 .r2-img ",
-          steps: [
-            {
-              animation: { width: "60%", padding: 16 },
-              scroll: { start: "top+=200", end: "+=600", },
-              // markers:true,
-            },
-          ],
-        },
-        {
-          selector: ".row-02 .text-area ",
-          steps: [
-            {
-              animation: { width: "40%", padding: 48 },
-              scroll: { start: "top+=200", end: "+=600", },
-              // markers:true,
-            },
-          ],
-        },
-        {
-          selector: ".row-02 .text-area .title",
-          steps: [
-            {
-              animation: { y: -32, opacity: 1, },
-              scroll: { start: "top+=600 top", end: "+=600", },
-              // markers:true,
-            },
-          ],
-        },
-        {
+            ],
+          },
+          {
+            selector: ".row-02 ",
+            steps: [
+              {
+                animation: {},
+                scroll: { start: "top top", end: "+=4000", pin: true },
+              },
+            ],
+          },
+          {
+            selector: ".row-02 .r2-img ",
+            steps: [
+              {
+                animation: { height: "50%", width: "100%", padding: 16 },
+                scroll: { start: "top+=200", end: "+=600", },
+                // markers:true,
+              },
+            ],
+          },
+          {
+            selector: ".row-02 .text-area ",
+            steps: [
+              {
+                animation: { height: "50%", width: "100%", padding: 48 },
+                scroll: { start: "top+=200", end: "+=600", },
+                // markers:true,
+              },
+            ],
+          },
+          {
+            selector: ".row-02 .text-area .title",
+            steps: [
+              {
+                animation: { y: -32, opacity: 1, },
+                scroll: { start: "top+=600 top", end: "+=600", },
+                // markers:true,
+              },
+            ],
+          },
+          {
 
-          selector: ".row-02 .text-area .content-01",
-          trigger: ".row-02 .text-area .title",
-          steps: [
-            {
-              animation: { y: -32, opacity: 1, },
-              scroll: { start: "top+=1000 top", end: "+=600", },
-              // markers:true,
-            },
-          ],
-        },
-        {
-          selector: ".row-02 .text-area .content-02",
-          trigger: ".row-02 .text-area .title",
-          steps: [
-            {
-              animation: { y: -32, opacity: 1, },
-              scroll: { start: "top+=1400 top", end: "+=600", },
-              // markers: true,
-            },
-          ],
-        },
-        {
-          selector: ".row-02 .text-area .content-03",
-          trigger: ".row-02 .text-area .title",
-          steps: [
-            {
-              animation: { y: -32, opacity: 1, },
-              scroll: { start: "top+=1800 top", end: "+=600", },
-              // markers: true,
-            },
-          ],
-        },
-        {
-          selector: ".row-03 ",
-          steps: [
-            {
-              animation: {},
-              scroll: { start: "top top", end: "+=4000", pin: true },
-            },
-          ],
-        },
-        {
-          selector: ".row-03 .r3-img ",
-          steps: [
-            {
-              animation: { width: "60%", padding: 16 },
-              scroll: { start: "top+=200", end: "+=600", },
-              // markers:true,
-            },
-          ],
-        },
-        {
-          selector: ".row-03 .text-area ",
-          steps: [
-            {
-              animation: { width: "40%", padding: 48 },
-              scroll: { start: "top+=200", end: "+=600", },
-              // markers:true,
-            },
-          ],
-        },
-        {
-          selector: ".row-03 .text-area .title",
-          steps: [
-            {
-              animation: { y: -32, opacity: 1, },
-              scroll: { start: "top+=600 top", end: "+=600", },
-              // markers:true,
-            },
-          ],
-        },
-        {
+            selector: ".row-02 .text-area .content-01",
+            trigger: ".row-02 .text-area .title",
+            steps: [
+              {
+                animation: { y: -32, opacity: 1, },
+                scroll: { start: "top+=1000 top", end: "+=600", },
+                // markers:true,
+              },
+            ],
+          },
+          {
+            selector: ".row-02 .text-area .content-02",
+            trigger: ".row-02 .text-area .title",
+            steps: [
+              {
+                animation: { y: -32, opacity: 1, },
+                scroll: { start: "top+=1400 top", end: "+=600", },
+                // markers: true,
+              },
+            ],
+          },
+          {
+            selector: ".row-02 .text-area .content-03",
+            trigger: ".row-02 .text-area .title",
+            steps: [
+              {
+                animation: { y: -32, opacity: 1, },
+                scroll: { start: "top+=1800 top", end: "+=600", },
+                // markers: true,
+              },
+            ],
+          },
+          {
+            selector: ".row-03 ",
+            steps: [
+              {
+                animation: {},
+                scroll: { start: "top top", end: "+=4000", pin: true },
+              },
+            ],
+          },
+          {
+            selector: ".row-03 .r3-img ",
+            steps: [
+              {
+                animation: { height: "50%", width: "100%", padding: 16 },
+                scroll: { start: "top+=200", end: "+=600", },
+                // markers:true,
+              },
+            ],
+          },
+          {
+            selector: ".row-03 .text-area ",
+            steps: [
+              {
+                animation: { height: "50%", width: "100%", padding: 48 },
+                scroll: { start: "top+=200", end: "+=600", },
+                // markers:true,
+              },
+            ],
+          },
+          {
+            selector: ".row-03 .text-area .title",
+            steps: [
+              {
+                animation: { y: -32, opacity: 1, },
+                scroll: { start: "top+=600 top", end: "+=600", },
+                // markers:true,
+              },
+            ],
+          },
+          {
 
-          selector: ".row-03 .text-area .content-01",
-          trigger: ".row-03 .text-area .title",
-          steps: [
-            {
-              animation: { y: -32, opacity: 1, },
-              scroll: { start: "top+=1000 top", end: "+=600", },
-              // markers:true,
-            },
-          ],
-        },
-        {
-          selector: ".row-03 .text-area .content-02",
-          trigger: ".row-03 .text-area .title",
-          steps: [
-            {
-              animation: { y: -32, opacity: 1, },
-              scroll: { start: "top+=1400 top", end: "+=600", },
-              // markers: true,
-            },
-          ],
-        },
-        {
-          selector: ".row-03 .text-area .content-03",
-          trigger: ".row-03 .text-area .title",
-          steps: [
-            {
-              animation: { y: -32, opacity: 1, },
-              scroll: { start: "top+=1800 top", end: "+=600", },
-              // markers: true,
-            },
-          ],
-        },
+            selector: ".row-03 .text-area .content-01",
+            trigger: ".row-03 .text-area .title",
+            steps: [
+              {
+                animation: { y: -32, opacity: 1, },
+                scroll: { start: "top+=1000 top", end: "+=600", },
+                // markers:true,
+              },
+            ],
+          },
+          {
+            selector: ".row-03 .text-area .content-02",
+            trigger: ".row-03 .text-area .title",
+            steps: [
+              {
+                animation: { y: -32, opacity: 1, },
+                scroll: { start: "top+=1400 top", end: "+=600", },
+                // markers: true,
+              },
+            ],
+          },
+          {
+            selector: ".row-03 .text-area .content-03",
+            trigger: ".row-03 .text-area .title",
+            steps: [
+              {
+                animation: { y: -32, opacity: 1, },
+                scroll: { start: "top+=1800 top", end: "+=600", },
+                // markers: true,
+              },
+            ],
+          },
 
-        {
-          selector: ".row-04",
-          steps: [
-            {
-              animation: {},
-              scroll: { start: "top top", end: "+=4600", pin: true },
-            },
-          ],
-        },
-        {
-          selector: ".row-04 .horizontal-area",
-          steps: [
-            {
-              animation: { x: "-84%" },
-              scroll: { start: "top 20%", end: "+=4600", },
-            },
-          ],
-        },
-        {
-          selector: ".row-05",
-          steps: [
-            {
-              animation: {},
-              scroll: { start: "top top", end: "+=1000", pin: true },
-            },
-          ],
-        },
-      ];
+          {
+            selector: ".row-04",
+            steps: [
+              {
+                animation: {},
+                scroll: { start: "top top", end: "+=4600", pin: true },
+              },
+            ],
+          },
+          {
+            selector: ".row-04 .horizontal-area",
+            steps: [
+              {
+                animation: { x: "-96%" },
+                scroll: { start: "top 20%", end: "+=4600", },
+              },
+            ],
+          },
+          {
+            selector: ".row-05",
+            steps: [
+              {
+                animation: {},
+                scroll: { start: "top top", end: "+=1000", pin: true },
+              },
+            ],
+          },
+        ];
+      } else {
+        rows = [
+          {
+            selector: ".background-fixed",
+            steps: [
+              {
+                animation: { top: 300 },
+                scroll: { start: "top top", end: "+=1000", },
+              },
+            ],
+          },
+          {
+            selector: ".row-01",
+            steps: [
+              {
+                animation: {},
+                scroll: { start: "top top", end: "+=6400", pin: true },
+                // markers: true,
+              },
+            ],
+          },
+          {
+            selector: ".row-01 .bg-layer",
+            steps: [
+              {
+                animation: { opacity: 1 },
+                scroll: { start: "top top", end: "+=500" },
+              },
+
+            ],
+          },
+          {
+            selector: ".row-02 ",
+            steps: [
+              {
+                animation: {},
+                scroll: { start: "top top", end: "+=4000", pin: true },
+              },
+            ],
+          },
+          {
+            selector: ".row-02 .r2-img ",
+            steps: [
+              {
+                animation: { width: "60%", padding: 16 },
+                scroll: { start: "top+=200", end: "+=600", },
+                // markers:true,
+              },
+            ],
+          },
+          {
+            selector: ".row-02 .text-area ",
+            steps: [
+              {
+                animation: { width: "40%", padding: 48 },
+                scroll: { start: "top+=200", end: "+=600", },
+                // markers:true,
+              },
+            ],
+          },
+          {
+            selector: ".row-02 .text-area .title",
+            steps: [
+              {
+                animation: { y: -32, opacity: 1, },
+                scroll: { start: "top+=600 top", end: "+=600", },
+                // markers:true,
+              },
+            ],
+          },
+          {
+
+            selector: ".row-02 .text-area .content-01",
+            trigger: ".row-02 .text-area .title",
+            steps: [
+              {
+                animation: { y: -32, opacity: 1, },
+                scroll: { start: "top+=1000 top", end: "+=600", },
+                // markers:true,
+              },
+            ],
+          },
+          {
+            selector: ".row-02 .text-area .content-02",
+            trigger: ".row-02 .text-area .title",
+            steps: [
+              {
+                animation: { y: -32, opacity: 1, },
+                scroll: { start: "top+=1400 top", end: "+=600", },
+                // markers: true,
+              },
+            ],
+          },
+          {
+            selector: ".row-02 .text-area .content-03",
+            trigger: ".row-02 .text-area .title",
+            steps: [
+              {
+                animation: { y: -32, opacity: 1, },
+                scroll: { start: "top+=1800 top", end: "+=600", },
+                // markers: true,
+              },
+            ],
+          },
+          {
+            selector: ".row-03 ",
+            steps: [
+              {
+                animation: {},
+                scroll: { start: "top top", end: "+=4000", pin: true },
+              },
+            ],
+          },
+          {
+            selector: ".row-03 .r3-img ",
+            steps: [
+              {
+                animation: { width: "60%", padding: 16 },
+                scroll: { start: "top+=200", end: "+=600", },
+                // markers:true,
+              },
+            ],
+          },
+          {
+            selector: ".row-03 .text-area ",
+            steps: [
+              {
+                animation: { width: "40%", padding: 48 },
+                scroll: { start: "top+=200", end: "+=600", },
+                // markers:true,
+              },
+            ],
+          },
+          {
+            selector: ".row-03 .text-area .title",
+            steps: [
+              {
+                animation: { y: -32, opacity: 1, },
+                scroll: { start: "top+=600 top", end: "+=600", },
+                // markers:true,
+              },
+            ],
+          },
+          {
+
+            selector: ".row-03 .text-area .content-01",
+            trigger: ".row-03 .text-area .title",
+            steps: [
+              {
+                animation: { y: -32, opacity: 1, },
+                scroll: { start: "top+=1000 top", end: "+=600", },
+                // markers:true,
+              },
+            ],
+          },
+          {
+            selector: ".row-03 .text-area .content-02",
+            trigger: ".row-03 .text-area .title",
+            steps: [
+              {
+                animation: { y: -32, opacity: 1, },
+                scroll: { start: "top+=1400 top", end: "+=600", },
+                // markers: true,
+              },
+            ],
+          },
+          {
+            selector: ".row-03 .text-area .content-03",
+            trigger: ".row-03 .text-area .title",
+            steps: [
+              {
+                animation: { y: -32, opacity: 1, },
+                scroll: { start: "top+=1800 top", end: "+=600", },
+                // markers: true,
+              },
+            ],
+          },
+
+          {
+            selector: ".row-04",
+            steps: [
+              {
+                animation: {},
+                scroll: { start: "top top", end: "+=4600", pin: true },
+              },
+            ],
+          },
+          {
+            selector: ".row-04 .horizontal-area",
+            steps: [
+              {
+                animation: { x: "-96%" },
+                scroll: { start: "top 20%", end: "+=4600", },
+              },
+            ],
+          },
+          {
+            selector: ".row-05",
+            steps: [
+              {
+                animation: {},
+                scroll: { start: "top top", end: "+=1000", pin: true },
+              },
+            ],
+          },
+        ];
+      }
+
 
       rows.forEach(({ selector, steps, trigger }) => {
         steps.forEach(({ animation, scroll, markers }) => {
