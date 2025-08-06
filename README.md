@@ -1,4 +1,4 @@
-# [🎷 SamPhone 勝風樂器有限公司 | 品牌形象網站](https://your-username.github.io/samphone)
+# [🎷 SamPhone 勝風樂器有限公司 | 品牌形象網站](https://xcia4899.github.io/samphone/)
 
 本專案為「勝風樂器有限公司」打造的品牌形象網站，使用 **Vue.js** 搭配 **GSAP ScrollTrigger** 建構生動流暢的動畫體驗，呈現品牌風格與音樂文化。
 
