@@ -7,8 +7,8 @@ export const indexdrop = {
 
         {
           title: "鑄造",
-          image: "../images/row4/IMG_7748.jpg",
-          imagedetal: "../images/row4/IMG_7743.jpg",
+          image: "./images/row4/IMG_7748.jpg",
+          imagedetal: "./images/row4/IMG_7743.jpg",
           content: "從一塊塊銅板開始，經由模具精準裁切，打造出樂器的主要金屬部件。這是每一支樂器成形的第一步，承載著音樂誕生的可能性。"
         },
         {
